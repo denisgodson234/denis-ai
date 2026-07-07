@@ -1,131 +1,255 @@
 let selectedSubject = "General Study";
 
+let lastAnswer = "";
+
+
 
 function setSubject(subject){
 
-  selectedSubject = subject;
+selectedSubject = subject;
 
-  document.getElementById("question").placeholder =
-  "Ask your " + subject + " question...";
+
+document.getElementById("question").placeholder =
+"Ask your " + subject + " question...";
+
 
 }
+
+
 
 
 
 const askBtn = document.getElementById("askBtn");
+
 const questionInput = document.getElementById("question");
+
 const chatArea = document.getElementById("chatArea");
 
+const clearBtn = document.getElementById("clearBtn");
 
-function addMessage(message, type){
+const copyBtn = document.getElementById("copyBtn");
 
-  const div = document.createElement("div");
 
-  div.className = "message " + type;
 
-  div.textContent = message;
 
-  chatArea.appendChild(div);
 
-  chatArea.scrollTop = chatArea.scrollHeight;
+function addMessage(text,type){
+
+
+const message = document.createElement("div");
+
+
+message.className =
+"message " + type;
+
+
+message.textContent = text;
+
+
+chatArea.appendChild(message);
+
+
+chatArea.scrollTop =
+chatArea.scrollHeight;
+
 
 }
+
+
+
 
 
 
 askBtn.addEventListener("click", async ()=>{
 
 
-  const question = questionInput.value.trim();
-
-
-  if(!question){
-
-    addMessage(
-      "Please enter a question.",
-      "ai"
-    );
-
-    return;
-
-  }
+const question =
+questionInput.value.trim();
 
 
 
-  addMessage(question,"user");
+if(!question){
 
+addMessage(
+"Please enter a question.",
+"ai"
+);
 
-  questionInput.value = "";
+return;
 
-
-  askBtn.disabled = true;
-
-  askBtn.textContent = "Thinking...";
-
-
-  addMessage(
-    "🤖 DENIS AI is thinking...",
-    "ai"
-  );
+}
 
 
 
-  try{
 
 
-    const response = await fetch("/ask",{
+addMessage(
+question,
+"user"
+);
 
-      method:"POST",
 
-      headers:{
-        "Content-Type":"application/json"
-      },
 
-      body:JSON.stringify({
+questionInput.value="";
 
-        question:
-        `Subject: ${selectedSubject}
+
+
+askBtn.disabled=true;
+
+askBtn.textContent="Thinking...";
+
+
+
+const thinking =
+document.createElement("div");
+
+
+thinking.className="message ai";
+
+thinking.textContent =
+"🤖 DENIS AI is thinking...";
+
+
+chatArea.appendChild(thinking);
+
+
+
+
+
+try{
+
+
+const response =
+await fetch("/ask",{
+
+
+method:"POST",
+
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+
+body:JSON.stringify({
+
+question:
+
+`Subject: ${selectedSubject}
 
 Student question:
 ${question}`
 
-      })
-
-    });
+})
 
 
-
-    const data = await response.json();
-
-
-    // Remove thinking message
-    chatArea.lastChild.remove();
+});
 
 
-    addMessage(
-      data.answer,
-      "ai"
-    );
 
 
-  }catch(error){
+
+const data =
+await response.json();
 
 
-    chatArea.lastChild.remove();
+
+thinking.remove();
 
 
-    addMessage(
-      "Unable to connect to AI.",
-      "ai"
-    );
+
+lastAnswer =
+data.answer;
 
 
-  }
+
+addMessage(
+data.answer,
+"ai"
+);
 
 
-  askBtn.disabled = false;
 
-  askBtn.textContent = "Ask AI";
+
+}
+
+catch(error){
+
+
+thinking.remove();
+
+
+addMessage(
+"Unable to connect to AI.",
+"ai"
+);
+
+
+}
+
+
+
+askBtn.disabled=false;
+
+
+askBtn.textContent="Ask AI";
+
+
+});
+
+
+
+
+
+
+
+clearBtn.addEventListener("click",()=>{
+
+
+chatArea.innerHTML=
+
+`
+<div class="message ai">
+
+🤖 Hello! I'm DENIS AI STUDY. Ask me anything.
+
+</div>
+`;
+
+
+lastAnswer="";
+
+
+});
+
+
+
+
+
+
+
+copyBtn.addEventListener("click",()=>{
+
+
+if(lastAnswer){
+
+
+navigator.clipboard.writeText(lastAnswer);
+
+
+alert("Answer copied!");
+
+}
+
+
+else{
+
+
+alert("No answer available.");
+
+}
 
 
 });

@@ -1,34 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DENIS AI STUDY</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DENIS AI STUDY</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
-<header>
-  <h1>🎓 DENIS AI STUDY</h1>
+
+<header class="navbar">
+
+<h1>🎓 DENIS AI STUDY</h1>
+
 </header>
 
-<main class="container">
-  <h2>Study Smarter with AI</h2>
-  <p>Ask questions, solve assignments, and learn faster.</p>
 
-  <textarea
-    id="question"
-    placeholder="Type your question here..."
-  ></textarea>
 
-  <button id="askBtn">Ask AI</button>
 
-  <div id="answer">
-    Your AI answer will appear here.
-  </div>
-</main>
+<section class="hero">
+
+
+<h2>Your Free AI Study Partner</h2>
+
+
+<p>
+Learn faster, understand lessons, solve assignments,
+and improve your knowledge with AI.
+</p>
+
+
+
+<div class="chat-card">
+
+
+<h3>Choose Study Mode</h3>
+
+
+<div class="subjects">
+
+<button class="subject-btn" onclick="setSubject('Math')">
+🧮 Math
+</button>
+
+
+<button class="subject-btn" onclick="setSubject('Science')">
+🔬 Science
+</button>
+
+
+<button class="subject-btn" onclick="setSubject('Essay Writing')">
+✍️ Essay
+</button>
+
+
+<button class="subject-btn" onclick="setSubject('General Study')">
+📚 General
+</button>
+
+</div>
+
+
+
+
+
+<textarea 
+id="question"
+placeholder="Ask your study question...">
+</textarea>
+
+
+
+
+<div class="buttons">
+
+
+<button id="askBtn">
+Ask AI
+</button>
+
+
+<button id="clearBtn" class="secondary-btn">
+🗑️ Clear Chat
+</button>
+
+
+<button id="copyBtn" class="secondary-btn">
+📋 Copy Answer
+</button>
+
+
+</div>
+
+
+
+
+
+<div id="chatArea">
+
+
+<div class="message ai">
+
+🤖 Hello! I'm DENIS AI STUDY. Ask me anything.
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="features">
+
+
+<h2>What DENIS AI STUDY Can Do</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>📚 Homework Help</h3>
+
+<p>
+Get help understanding lessons and assignments.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🧮 Math Solver</h3>
+
+<p>
+Solve problems with explanations.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🔬 Science Tutor</h3>
+
+<p>
+Learn science in simple language.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>✍️ Essay Assistant</h3>
+
+<p>
+Improve your writing skills.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
