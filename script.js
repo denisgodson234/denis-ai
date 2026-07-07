@@ -1,12 +1,12 @@
 let selectedSubject = "General Study";
 
 
-function setSubject(subject) {
+function setSubject(subject){
 
   selectedSubject = subject;
 
   document.getElementById("question").placeholder =
-    "Ask your " + subject + " question...";
+  "Ask your " + subject + " question...";
 
 }
 
@@ -14,19 +14,37 @@ function setSubject(subject) {
 
 const askBtn = document.getElementById("askBtn");
 const questionInput = document.getElementById("question");
-const answerBox = document.getElementById("answer");
+const chatArea = document.getElementById("chatArea");
 
 
-askBtn.addEventListener("click", async () => {
+function addMessage(message, type){
+
+  const div = document.createElement("div");
+
+  div.className = "message " + type;
+
+  div.textContent = message;
+
+  chatArea.appendChild(div);
+
+  chatArea.scrollTop = chatArea.scrollHeight;
+
+}
+
+
+
+askBtn.addEventListener("click", async ()=>{
 
 
   const question = questionInput.value.trim();
 
 
-  if (!question) {
+  if(!question){
 
-    answerBox.textContent =
-      "Please enter a question.";
+    addMessage(
+      "Please enter a question.",
+      "ai"
+    );
 
     return;
 
@@ -34,29 +52,36 @@ askBtn.addEventListener("click", async () => {
 
 
 
+  addMessage(question,"user");
+
+
+  questionInput.value = "";
+
+
   askBtn.disabled = true;
 
   askBtn.textContent = "Thinking...";
 
 
-  answerBox.textContent =
-    "🤖 DENIS AI is preparing your answer...";
+  addMessage(
+    "🤖 DENIS AI is thinking...",
+    "ai"
+  );
 
 
 
-  try {
+  try{
 
 
-    const response = await fetch("/ask", {
+    const response = await fetch("/ask",{
 
-      method: "POST",
+      method:"POST",
 
-      headers: {
-        "Content-Type": "application/json"
+      headers:{
+        "Content-Type":"application/json"
       },
 
-
-      body: JSON.stringify({
+      body:JSON.stringify({
 
         question:
         `Subject: ${selectedSubject}
@@ -73,30 +98,29 @@ ${question}`
     const data = await response.json();
 
 
-
-    if (response.ok) {
-
-      answerBox.textContent =
-        data.answer;
-
-    } else {
-
-      answerBox.textContent =
-        "Error: " + data.answer;
-
-    }
+    // Remove thinking message
+    chatArea.lastChild.remove();
 
 
+    addMessage(
+      data.answer,
+      "ai"
+    );
 
-  } catch (error) {
+
+  }catch(error){
 
 
-    answerBox.textContent =
-      "Unable to connect to DENIS AI.";
+    chatArea.lastChild.remove();
+
+
+    addMessage(
+      "Unable to connect to AI.",
+      "ai"
+    );
 
 
   }
-
 
 
   askBtn.disabled = false;
