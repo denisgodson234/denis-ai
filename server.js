@@ -12,55 +12,70 @@ app.use(express.json());
 app.use(express.static("."));
 
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.GROQ_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1"
 });
 
+
 app.post("/ask", async (req, res) => {
+
   try {
+
     const { question } = req.body;
 
     if (!question) {
-      return res.status(400).json({
+      return res.json({
         answer: "Please enter a question."
       });
     }
 
-    const response = await client.responses.create({
-      model: "gpt-4.1-mini",
-      input: `You are DENIS AI STUDY, a friendly AI tutor.
 
-Answer the student's question clearly and simply.
+    const response = await client.chat.completions.create({
 
-Question:
-${question}`
+      model: "llama-3.3-70b-versatile",
+
+      messages: [
+        {
+          role: "system",
+          content:
+          "You are DENIS AI STUDY, a helpful AI tutor. Help students understand lessons, solve assignments, explain topics clearly, and give educational answers."
+        },
+
+        {
+          role: "user",
+          content: question
+        }
+      ]
+
     });
+
 
     res.json({
-      answer: response.output_text
+      answer: response.choices[0].message.content
     });
 
-  } catch (error) {
-    console.error("===== OPENAI ERROR =====");
-    console.error(error);
 
-    let message = "Unknown server error.";
+  } catch(error){
 
-    if (error.message) {
-      message = error.message;
-    }
-
-    if (error.error && error.error.message) {
-      message = error.error.message;
-    }
+    console.log(error);
 
     res.status(500).json({
-      answer: message
+      answer:
+      "AI connection error: " + error.message
     });
+
   }
+
 });
+
 
 const PORT = process.env.PORT || 3000;
 
+
 app.listen(PORT, () => {
-  console.log(`DENIS AI STUDY is running on port ${PORT}`);
+
+console.log(
+`DENIS AI STUDY running on port ${PORT}`
+);
+
 });

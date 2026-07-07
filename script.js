@@ -2,39 +2,60 @@ const askBtn = document.getElementById("askBtn");
 const questionInput = document.getElementById("question");
 const answerBox = document.getElementById("answer");
 
-askBtn.addEventListener("click", async () => {
-  const question = questionInput.value.trim();
 
-  if (!question) {
-    answerBox.textContent = "Please enter a question.";
-    return;
-  }
+askBtn.addEventListener("click", async ()=>{
 
-  askBtn.disabled = true;
-  askBtn.textContent = "Thinking...";
-  answerBox.textContent = "Getting your answer...";
+const question = questionInput.value.trim();
 
-  try {
-    const response = await fetch("/ask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ question })
-    });
 
-    const data = await response.json();
+if(!question){
 
-    if (!response.ok) {
-      answerBox.textContent = data.answer || "An error occurred.";
-    } else {
-      answerBox.textContent = data.answer;
-    }
+answerBox.textContent =
+"Please enter a question.";
 
-  } catch (error) {
-    answerBox.textContent = "Unable to connect to the AI server.";
-  }
+return;
 
-  askBtn.disabled = false;
-  askBtn.textContent = "Ask AI";
+}
+
+
+answerBox.textContent =
+"Thinking...";
+
+
+try{
+
+
+const response = await fetch("/ask",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+question:question
+})
+
+});
+
+
+const data = await response.json();
+
+
+answerBox.textContent =
+data.answer;
+
+
+
+}catch(error){
+
+
+answerBox.textContent =
+"Cannot connect to AI.";
+
+
+}
+
+
 });
