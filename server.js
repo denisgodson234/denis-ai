@@ -27,9 +27,11 @@ app.post("/ask", async (req, res) => {
 
     const response = await client.responses.create({
       model: "gpt-4.1-mini",
-      input: `You are DENIS AI STUDY, a friendly AI tutor that helps students understand topics, solve assignments, and explain answers clearly.
+      input: `You are DENIS AI STUDY, a friendly AI tutor.
 
-Student's question:
+Answer the student's question clearly and simply.
+
+Question:
 ${question}`
     });
 
@@ -38,10 +40,21 @@ ${question}`
     });
 
   } catch (error) {
-    console.error("OpenAI Error:", error);
+    console.error("===== OPENAI ERROR =====");
+    console.error(error);
+
+    let message = "Unknown server error.";
+
+    if (error.message) {
+      message = error.message;
+    }
+
+    if (error.error && error.error.message) {
+      message = error.error.message;
+    }
 
     res.status(500).json({
-      answer: "Server error. Please try again later."
+      answer: message
     });
   }
 });
