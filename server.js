@@ -38,7 +38,7 @@ app.post("/ask", async (req, res) => {
         {
           role: "system",
           content:
-          "You are DENIS AI STUDY, a helpful AI tutor. Help students understand lessons, solve assignments, explain topics clearly, and give educational answers."
+          "You are DENIS GODSON AI STUDY, a helpful AI tutor. Help students understand lessons, solve assignments, explain topics clearly, and give educational answers."
         },
 
         {
@@ -75,7 +75,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 
 console.log(
-`DENIS AI STUDY running on port ${PORT}`
+`DENIS GODSON AI STUDY running on port ${PORT}`
 );
 
 });

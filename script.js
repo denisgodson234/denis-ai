@@ -79,7 +79,7 @@ const thinking = document.createElement("div");
 
 thinking.className="message ai";
 
-thinking.textContent="🤖 DENIS AI is thinking...";
+thinking.textContent="🤖 DENIS GODSON AI is thinking...";
 
 chatArea.appendChild(thinking);
 
@@ -154,7 +154,7 @@ body:JSON.stringify({
 
 question:
 
-`You are DENIS AI STUDY.
+`You are DENIS GODSON AI STUDY.
 
 Task:
 ${instruction}
@@ -232,7 +232,7 @@ chatArea.innerHTML =
 `
 <div class="message ai">
 
-🤖 Hello! I'm DENIS AI STUDY. Ask me anything.
+🤖 Hello! I'm DENIS GODSON AI STUDY. Ask me anything.
 
 </div>
 `;
