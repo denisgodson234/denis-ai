@@ -2,323 +2,208 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DENIS GODSON AI STUDY</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DENIS GODSON AI STUDY</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
 <header class="navbar">
 
-<h1>🎓 DENIS GODSON AI STUDY</h1>
+  <div class="logo">
+    🎓 DENIS GODSON AI STUDY
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#chat">AI Chat</a>
+    <a href="#tools">Tools</a>
+    <a href="#about">About</a>
+  </nav>
 
 </header>
 
 
-
-
 <section class="hero">
 
+  <h1>Learn Smarter with AI</h1>
 
-<h2>Your Free AI Study Partner</h2>
+  <p>
+    DENIS GODSON AI STUDY helps students solve assignments,
+    generate quizzes, summarize notes and learn faster using Artificial Intelligence.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#chat">
+      <button>Start Studying</button>
+    </a>
+
+    <a href="#tools">
+      <button class="secondary-btn">Explore Tools</button>
+    </a>
+  </div>
+
+</section>
 
 
-<p>
-Learn faster, solve assignments, create quizzes,
-and understand topics with AI.
-</p>
-
-
-
+<section id="chat" class="hero">
 
 <div class="chat-card">
 
+<h2>AI Study Assistant</h2>
 
 <h3>Choose Study Mode</h3>
 
-
-
 <div class="subjects">
-
 
 <button class="subject-btn" onclick="setSubject('Math')">
 🧮 Math
 </button>
 
-
-
 <button class="subject-btn" onclick="setSubject('Science')">
 🔬 Science
 </button>
-
-
 
 <button class="subject-btn" onclick="setSubject('Essay Writing')">
 ✍️ Essay
 </button>
 
-
-
 <button class="subject-btn" onclick="setSubject('General Study')">
 📚 General
 </button>
 
-
-
 </div>
 
 
-
-
-
-<textarea 
+<textarea
 id="question"
 placeholder="Ask your study question...">
 </textarea>
 
 
-
-
-
 <div class="buttons">
-
 
 <button id="askBtn">
 Ask AI
 </button>
 
-
 <button id="clearBtn" class="secondary-btn">
 🗑️ Clear Chat
 </button>
-
 
 <button id="copyBtn" class="secondary-btn">
 📋 Copy Answer
 </button>
 
-
 </div>
-
-
-
-
 
 
 <div id="chatArea">
 
-
 <div class="message ai">
-
-🤖 Hello! I'm DENIS AI STUDY. Ask me anything.
+🤖 Hello! I'm DENIS GODSON AI STUDY. Ask me anything.
+</div>
 
 </div>
 
-
 </div>
-
-
-
-
-
-</div>
-
 
 </section>
 
 
 
-
-
-
-
-
-<section class="features">
-
+<section id="tools" class="features">
 
 <h2>AI Study Tools</h2>
 
-
 <div class="cards">
 
-
-
-
-
 <div class="card">
-
 <h3>🧮 Math Solver</h3>
-
-<p>
-Get step-by-step solutions and explanations.
-</p>
-
-
-<button onclick="setSubject('Math')">
-Use Tool
-</button>
-
-
+<p>Get step-by-step math explanations.</p>
+<button onclick="setSubject('Math')">Use Tool</button>
 </div>
 
-
-
-
-
-
-
 <div class="card">
-
 <h3>📝 Quiz Generator</h3>
-
-<p>
-Create practice questions from any topic.
-</p>
-
-
-<button onclick="setSubject('Quiz Generator')">
-Use Tool
-</button>
-
-
+<p>Create quizzes from any topic.</p>
+<button onclick="setSubject('Quiz Generator')">Use Tool</button>
 </div>
 
-
-
-
-
-
-
 <div class="card">
-
 <h3>📖 Summarizer</h3>
-
-<p>
-Turn long notes into simple summaries.
-</p>
-
-
-<button onclick="setSubject('Summarizer')">
-Use Tool
-</button>
-
-
+<p>Turn long notes into short summaries.</p>
+<button onclick="setSubject('Summarizer')">Use Tool</button>
 </div>
-
-
-
-
-
-
 
 <div class="card">
-
 <h3>✍️ Essay Helper</h3>
-
-<p>
-Improve your writing and organize ideas.
-</p>
-
-
-<button onclick="setSubject('Essay Writing')">
-Use Tool
-</button>
-
-
+<p>Improve essays and writing.</p>
+<button onclick="setSubject('Essay Writing')">Use Tool</button>
 </div>
 
-
-
-
-
-
 </div>
-
 
 </section>
-
-
-
 
 
 
 <section class="features">
 
-
-<h2>Why Use DENIS GODSON AI STUDY?</h2>
-
+<h2>Why Choose DENIS GODSON AI STUDY?</h2>
 
 <div class="cards">
 
-
 <div class="card">
-
-<h3>⚡ Fast Learning</h3>
-
-<p>
-Get instant explanations anytime.
-</p>
-
+<h3>⚡ Fast</h3>
+<p>Receive answers in seconds.</p>
 </div>
 
-
-
 <div class="card">
-
 <h3>🎓 Student Friendly</h3>
-
-<p>
-Simple answers that are easy to understand.
-</p>
-
+<p>Easy-to-understand explanations.</p>
 </div>
-
-
 
 <div class="card">
-
-<h3>🌍 Available Anywhere</h3>
-
-<p>
-Study from your phone or computer.
-</p>
-
+<h3>🌍 Free Access</h3>
+<p>No sign-up required.</p>
 </div>
 
-
-
 </div>
-
 
 </section>
 
 
 
+<section id="about" class="features">
+
+<h2>About DENIS GODSON AI STUDY</h2>
+
+<p style="max-width:900px;margin:auto;line-height:1.8;">
+
+DENIS GODSON AI STUDY is a free AI-powered learning platform created to help students
+understand difficult topics, solve assignments, generate quizzes, summarize notes,
+and improve learning with modern Artificial Intelligence.
+
+Our mission is to make quality education available to every student.
+
+</p>
+
+</section>
 
 
 
-<footer style="text-align:center;padding:30px;">
+<footer>
 
 <p>
-© 2026 DENIS AI STUDY - Your AI Learning Partner
+© 2026 DENIS GODSON AI STUDY. All Rights Reserved.
 </p>
 
 </footer>
 
-
-
-
-
 <script src="script.js"></script>
-
 
 </body>
 

@@ -1,20 +1,26 @@
-let selectedSubject = "General Study";
+// ==============================
+// DENIS GODSON AI STUDY V3
+// ==============================
 
+let selectedSubject = "General Study";
 let lastAnswer = "";
 
+// ------------------------------
+// Select Study Mode
+// ------------------------------
 
-function setSubject(subject){
+function setSubject(subject) {
 
-  selectedSubject = subject;
+    selectedSubject = subject;
 
-  document.getElementById("question").placeholder =
-  "Ask your " + subject + " request...";
+    document.getElementById("question").placeholder =
+        "Ask your " + subject + " question...";
 
 }
 
-
-
-
+// ------------------------------
+// Elements
+// ------------------------------
 
 const askBtn = document.getElementById("askBtn");
 const questionInput = document.getElementById("question");
@@ -22,248 +28,193 @@ const chatArea = document.getElementById("chatArea");
 const clearBtn = document.getElementById("clearBtn");
 const copyBtn = document.getElementById("copyBtn");
 
+// ------------------------------
+// Add Chat Message
+// ------------------------------
 
+function addMessage(text, type) {
 
+    const message = document.createElement("div");
 
+    message.className = "message " + type;
 
-function addMessage(text,type){
+    message.textContent = text;
 
-  const message = document.createElement("div");
+    chatArea.appendChild(message);
 
-  message.className = "message " + type;
-
-  message.textContent = text;
-
-  chatArea.appendChild(message);
-
-  chatArea.scrollTop = chatArea.scrollHeight;
-
-}
-
-
-
-
-
-askBtn.addEventListener("click", async ()=>{
-
-
-const question = questionInput.value.trim();
-
-
-if(!question){
-
-addMessage(
-"Please enter a question.",
-"ai"
-);
-
-return;
+    chatArea.scrollTop = chatArea.scrollHeight;
 
 }
 
+// ------------------------------
+// Ask AI
+// ------------------------------
 
+askBtn.addEventListener("click", async () => {
 
-addMessage(question,"user");
+    const question = questionInput.value.trim();
 
+    if (!question) {
 
-questionInput.value="";
+        addMessage("Please enter a question.", "ai");
+        return;
 
+    }
 
-askBtn.disabled=true;
+    addMessage(question, "user");
 
-askBtn.textContent="Thinking...";
+    questionInput.value = "";
 
+    askBtn.disabled = true;
+    askBtn.textContent = "Thinking...";
 
+    const thinking = document.createElement("div");
 
-const thinking = document.createElement("div");
+    thinking.className = "message ai";
+    thinking.textContent = "🤖 DENIS GODSON AI STUDY is thinking...";
 
-thinking.className="message ai";
+    chatArea.appendChild(thinking);
 
-thinking.textContent="🤖 DENIS GODSON AI is thinking...";
+    let instruction = "";
 
-chatArea.appendChild(thinking);
+    switch (selectedSubject) {
 
+        case "Math":
+            instruction =
+                "Solve this math problem step by step with explanations.";
+            break;
 
+        case "Science":
+            instruction =
+                "Explain this science topic simply for a student.";
+            break;
 
+        case "Essay Writing":
+            instruction =
+                "Help improve the student's essay with structure and better writing.";
+            break;
 
+        case "Quiz Generator":
+            instruction =
+                "Create 10 quiz questions with answers from the student's topic.";
+            break;
 
-let instruction = "";
+        case "Summarizer":
+            instruction =
+                "Summarize the student's notes into simple study points.";
+            break;
 
+        default:
+            instruction =
+                "Answer clearly like a friendly AI tutor.";
 
+    }
 
-if(selectedSubject === "Math"){
+    try {
 
-instruction =
-"Solve this math problem step by step. Explain every step clearly.";
+        const response = await fetch("/ask", {
 
-}
+            method: "POST",
 
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-else if(selectedSubject === "Quiz Generator"){
+            body: JSON.stringify({
 
-instruction =
-"Create a quiz about this topic. Include questions and answers.";
-
-}
-
-
-else if(selectedSubject === "Summarizer"){
-
-instruction =
-"Summarize this text into short, clear study notes.";
-
-}
-
-
-else if(selectedSubject === "Essay Writing"){
-
-instruction =
-"Help the student write a better essay. Give structure, ideas, and improvements.";
-
-}
-
-
-else{
-
-instruction =
-"Help the student understand this topic clearly.";
-
-}
-
-
-
-
-
-try{
-
-
-const response = await fetch("/ask",{
-
-
-method:"POST",
-
-
-headers:{
-
-"Content-Type":"application/json"
-
-},
-
-
-body:JSON.stringify({
-
-question:
-
+                question:
 `You are DENIS GODSON AI STUDY.
 
-Task:
 ${instruction}
 
 Student request:
 ${question}`
 
-})
+            })
 
+        });
 
-});
+        const data = await response.json();
 
+        thinking.remove();
 
+        lastAnswer = data.answer;
 
+        addMessage(data.answer, "ai");
 
-const data = await response.json();
+    }
 
+    catch (error) {
 
+        thinking.remove();
 
-thinking.remove();
+        addMessage(
+            "❌ Unable to connect to the AI server.",
+            "ai"
+        );
 
+    }
 
+    askBtn.disabled = false;
 
-lastAnswer = data.answer;
-
-
-
-addMessage(
-data.answer,
-"ai"
-);
-
-
-
-}
-
-
-catch(error){
-
-
-thinking.remove();
-
-
-addMessage(
-"Unable to connect to AI.",
-"ai"
-);
-
-
-}
-
-
-
-
-
-askBtn.disabled=false;
-
-askBtn.textContent="Ask AI";
-
-
+    askBtn.textContent = "Ask AI";
 
 });
 
+// ------------------------------
+// Copy Answer
+// ------------------------------
 
+copyBtn.addEventListener("click", () => {
 
+    if (!lastAnswer) {
 
+        alert("No answer available yet.");
 
+        return;
 
+    }
 
-clearBtn.addEventListener("click",()=>{
+    navigator.clipboard.writeText(lastAnswer);
 
+    alert("✅ Answer copied!");
 
-chatArea.innerHTML =
+});
 
-`
+// ------------------------------
+// Clear Chat
+// ------------------------------
+
+clearBtn.addEventListener("click", () => {
+
+    chatArea.innerHTML = `
+
 <div class="message ai">
 
-🤖 Hello! I'm DENIS GODSON AI STUDY. Ask me anything.
+🤖 Hello! I'm DENIS GODSON AI STUDY.
+
+How can I help you today?
 
 </div>
+
 `;
 
-lastAnswer="";
-
+    lastAnswer = "";
 
 });
 
+// ------------------------------
+// Press Enter to Ask
+// ------------------------------
 
+questionInput.addEventListener("keydown", function (event) {
 
+    if (event.key === "Enter" && !event.shiftKey) {
 
+        event.preventDefault();
 
+        askBtn.click();
 
-
-copyBtn.addEventListener("click",()=>{
-
-
-if(lastAnswer){
-
-navigator.clipboard.writeText(lastAnswer);
-
-alert("Answer copied!");
-
-}
-
-else{
-
-alert("No answer available yet.");
-
-}
-
+    }
 
 });
