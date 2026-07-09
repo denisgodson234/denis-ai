@@ -2,59 +2,278 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DENIS GODSON AI STUDY</title>
-  <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>DENIS GODSON AI STUDY</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header class="navbar">
 
-  <div class="logo">
-    🎓 DENIS GODSON AI STUDY
-  </div>
+<div class="logo">
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#chat">AI Chat</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
-  </nav>
+🎓 DENIS GODSON AI STUDY
+
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#dashboard">Dashboard</a>
+
+<a href="#chat">AI Chat</a>
+
+<a href="#about">About</a>
+
+</nav>
 
 </header>
 
 
+
+
+
 <section class="hero">
 
-  <h1>Learn Smarter with AI</h1>
+<h1>
 
-  <p>
-    DENIS GODSON AI STUDY helps students solve assignments,
-    generate quizzes, summarize notes and learn faster using Artificial Intelligence.
-  </p>
+Welcome to
 
-  <div class="hero-buttons">
-    <a href="#chat">
-      <button>Start Studying</button>
-    </a>
+<br>
 
-    <a href="#tools">
-      <button class="secondary-btn">Explore Tools</button>
-    </a>
-  </div>
+DENIS GODSON AI STUDY
+
+</h1>
+
+<p>
+
+Your intelligent study companion powered by Artificial Intelligence.
+
+Study smarter.
+
+Solve assignments.
+
+Generate quizzes.
+
+Master every subject.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#dashboard">
+
+<button>
+
+Start Learning
+
+</button>
+
+</a>
+
+<a href="#chat">
+
+<button class="secondary-btn">
+
+Open AI Chat
+
+</button>
+
+</a>
+
+</div>
 
 </section>
 
 
+
+
+
+<section id="dashboard" class="features">
+
+<h2>
+
+AI Learning Dashboard
+
+</h2>
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h3>
+
+💬 AI Tutor
+
+</h3>
+
+<p>
+
+Ask questions from any subject and receive simple explanations.
+
+</p>
+
+<button onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})">
+
+Open
+
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+
+📚 Flashcard Generator
+
+</h3>
+
+<p>
+
+Generate study flashcards instantly from any topic.
+
+</p>
+
+<button onclick="setSubject('Flashcard Generator')">
+
+Use Tool
+
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+
+📝 Quiz Generator
+
+</h3>
+
+<p>
+
+Create practice quizzes with answers.
+
+</p>
+
+<button onclick="setSubject('Quiz Generator')">
+
+Use Tool
+
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+
+📖 Notes Summarizer
+
+</h3>
+
+<p>
+
+Convert long notes into easy study points.
+
+</p>
+
+<button onclick="setSubject('Summarizer')">
+
+Use Tool
+
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+
+🧮 Math Solver
+
+</h3>
+
+<p>
+
+Solve mathematics step by step.
+
+</p>
+
+<button onclick="setSubject('Math')">
+
+Use Tool
+
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+
+✍️ Essay Helper
+
+</h3>
+
+<p>
+
+Improve essays and writing.
+
+</p>
+
+<button onclick="setSubject('Essay Writing')">
+
+Use Tool
+
+</button>
+
+</div>
+
+</div>
+
+</section>
 <section id="chat" class="hero">
 
 <div class="chat-card">
 
 <h2>AI Study Assistant</h2>
 
-<h3>Choose Study Mode</h3>
+<p>
+Choose a study tool or ask any question below.
+</p>
 
 <div class="subjects">
 
@@ -74,14 +293,20 @@
 📚 General
 </button>
 
-</div>
+<button class="subject-btn" onclick="setSubject('Flashcard Generator')">
+📚 Flashcards
+</button>
 
+<button class="subject-btn" onclick="setSubject('Quiz Generator')">
+📝 Quiz
+</button>
+
+</div>
 
 <textarea
 id="question"
-placeholder="Ask your study question...">
+placeholder="Ask your question or enter a topic...">
 </textarea>
-
 
 <div class="buttons">
 
@@ -99,82 +324,21 @@ Ask AI
 
 </div>
 
-
 <div id="chatArea">
 
 <div class="message ai">
-🤖 Hello! I'm DENIS GODSON AI STUDY. Ask me anything.
-</div>
+
+🤖 Welcome to DENIS GODSON AI STUDY!
+
+Select a study tool above or ask me anything.
 
 </div>
 
-</div>
-
-</section>
-
-
-
-<section id="tools" class="features">
-
-<h2>AI Study Tools</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🧮 Math Solver</h3>
-<p>Get step-by-step math explanations.</p>
-<button onclick="setSubject('Math')">Use Tool</button>
-</div>
-
-<div class="card">
-<h3>📝 Quiz Generator</h3>
-<p>Create quizzes from any topic.</p>
-<button onclick="setSubject('Quiz Generator')">Use Tool</button>
-</div>
-
-<div class="card">
-<h3>📖 Summarizer</h3>
-<p>Turn long notes into short summaries.</p>
-<button onclick="setSubject('Summarizer')">Use Tool</button>
-</div>
-
-<div class="card">
-<h3>✍️ Essay Helper</h3>
-<p>Improve essays and writing.</p>
-<button onclick="setSubject('Essay Writing')">Use Tool</button>
 </div>
 
 </div>
 
 </section>
-
-
-
-<section class="features">
-
-<h2>Why Choose DENIS GODSON AI STUDY?</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>⚡ Fast</h3>
-<p>Receive answers in seconds.</p>
-</div>
-
-<div class="card">
-<h3>🎓 Student Friendly</h3>
-<p>Easy-to-understand explanations.</p>
-</div>
-
-<div class="card">
-<h3>🌍 Free Access</h3>
-<p>No sign-up required.</p>
-</div>
-
-</div>
-
-</section>
-
 
 
 <section id="about" class="features">
@@ -183,22 +347,25 @@ Ask AI
 
 <p style="max-width:900px;margin:auto;line-height:1.8;">
 
-DENIS GODSON AI STUDY is a free AI-powered learning platform created to help students
-understand difficult topics, solve assignments, generate quizzes, summarize notes,
-and improve learning with modern Artificial Intelligence.
+DENIS GODSON AI STUDY is an AI-powered education platform designed to help students learn faster, understand difficult topics, solve assignments, generate quizzes, create flashcards, summarize notes, and improve academic performance using modern Artificial Intelligence.
 
-Our mission is to make quality education available to every student.
+Our mission is to make high-quality learning accessible to everyone for free.
 
 </p>
 
 </section>
 
 
-
 <footer>
 
 <p>
-© 2026 DENIS GODSON AI STUDY. All Rights Reserved.
+
+© 2026 DENIS GODSON AI STUDY
+
+<br><br>
+
+Powered by AI • Built with ❤️ by Denis Godson
+
 </p>
 
 </footer>
