@@ -15,33 +15,53 @@
 
 </head>
 
+
 <body>
 
+
 <header class="navbar">
+
 
 <div class="logo">
 
 <img src="logo.png" alt="DENIS GODSON AI STUDY Logo">
 
-<span>DENIS GODSON AI STUDY</span>
+<span>
+DENIS GODSON AI STUDY
+</span>
 
 </div>
 
+
+
 <nav>
 
-<a href="#">Home</a>
+<a href="#">
+Home
+</a>
 
-<a href="#dashboard">Dashboard</a>
+<a href="#dashboard">
+Dashboard
+</a>
 
-<a href="#chat">AI Chat</a>
+<a href="#chat">
+AI Chat
+</a>
 
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
 </nav>
 
+
 </header>
 
+
+
+
 <section class="hero">
+
 
 <h1>
 
@@ -53,31 +73,29 @@ DENIS GODSON AI STUDY
 
 </h1>
 
+
 <p>
 
 Your intelligent study companion powered by Artificial Intelligence.
 
-Study smarter.
-
-Solve assignments.
-
-Generate quizzes.
-
-Master every subject.
+Study smarter. Solve assignments. Generate quizzes. Master every subject.
 
 </p>
 
+
+
 <div class="hero-buttons">
+
 
 <a href="#dashboard">
 
 <button>
-
 Start Learning
-
 </button>
 
 </a>
+
+
 
 <a href="#chat">
 
@@ -89,100 +107,61 @@ Open AI Chat
 
 </a>
 
+
 </div>
+
 
 </section>
 
+
+
+
 <section id="dashboard" class="features">
 
+
 <h2>
-
 AI Learning Dashboard
-
 </h2>
+
+
 
 <div class="cards">
 
+
 <div class="card">
 
-<h3>💬 AI Tutor</h3>
+<h3>
+💬 AI Tutor
+</h3>
+
 
 <p>
-
-Ask questions from any subject and receive simple explanations.
-
+Ask questions and receive simple explanations.
 </p>
 
-<button onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})">
+
+<button onclick="document.getElementById('chat').scrollIntoView()">
 
 Open
 
 </button>
 
-</div>
-
-<div class="card">
-
-<h3>📚 Flashcard Generator</h3>
-
-<p>
-
-Generate study flashcards instantly from any topic.
-
-</p>
-
-<button onclick="setSubject('Flashcard Generator')">
-
-Use Tool
-
-</button>
 
 </div>
 
-<div class="card">
 
-<h3>📝 Quiz Generator</h3>
-
-<p>
-
-Create practice quizzes with answers.
-
-</p>
-
-<button onclick="setSubject('Quiz Generator')">
-
-Use Tool
-
-</button>
-
-</div>
 
 <div class="card">
 
-<h3>📖 Notes Summarizer</h3>
+<h3>
+🧮 Math Solver
+</h3>
+
 
 <p>
-
-Convert long notes into easy study points.
-
-</p>
-
-<button onclick="setSubject('Summarizer')">
-
-Use Tool
-
-</button>
-
-</div>
-<div class="card">
-
-<h3>🧮 Math Solver</h3>
-
-<p>
-
 Solve mathematics step by step.
-
 </p>
+
 
 <button onclick="setSubject('Math')">
 
@@ -190,17 +169,92 @@ Use Tool
 
 </button>
 
+
 </div>
 
 <div class="card">
 
-<h3>✍️ Essay Helper</h3>
+<h3>
+🔬 Science
+</h3>
+
 
 <p>
-
-Improve essays and writing.
-
+Understand science topics with simple explanations.
 </p>
+
+
+<button onclick="setSubject('Science')">
+
+Use Tool
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+📝 Quiz Generator
+</h3>
+
+
+<p>
+Create practice questions and answers.
+</p>
+
+
+<button onclick="setSubject('Quiz Generator')">
+
+Use Tool
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+📚 Flashcards
+</h3>
+
+
+<p>
+Create flashcards for faster revision.
+</p>
+
+
+<button onclick="setSubject('Flashcard Generator')">
+
+Use Tool
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+✍️ Essay Helper
+</h3>
+
+
+<p>
+Improve writing and organize ideas.
+</p>
+
 
 <button onclick="setSubject('Essay Writing')">
 
@@ -208,58 +262,108 @@ Use Tool
 
 </button>
 
+
 </div>
+
+
 
 </div>
 
 </section>
 
-<section id="chat" class="hero">
+
+
+
+
+
+<section id="chat" class="features">
+
+
+<h2>
+
+AI Study Chat
+
+</h2>
+
+
+
 
 <div class="chat-card">
 
-<h2>AI Study Assistant</h2>
 
-<p>
 
-Choose a study tool or ask any question below.
+<h3>
 
-</p>
+Choose Study Mode
+
+</h3>
+
+
 
 <div class="subjects">
 
+
 <button class="subject-btn" onclick="setSubject('Math')">
+
 🧮 Math
+
 </button>
+
+
 
 <button class="subject-btn" onclick="setSubject('Science')">
+
 🔬 Science
+
 </button>
+
+
 
 <button class="subject-btn" onclick="setSubject('Essay Writing')">
+
 ✍️ Essay
+
 </button>
+
+
 
 <button class="subject-btn" onclick="setSubject('General Study')">
+
 📚 General
+
 </button>
+
+
 
 <button class="subject-btn" onclick="setSubject('Flashcard Generator')">
-📚 Flashcards
+
+📖 Flashcards
+
 </button>
 
+
+
 <button class="subject-btn" onclick="setSubject('Quiz Generator')">
+
 📝 Quiz
+
 </button>
+
+
 
 </div>
 
-<textarea
-id="question"
-placeholder="Ask your study question...">
-</textarea>
+
+
+
+
+<textarea id="question" placeholder="Ask your study question..."></textarea>
+
+
+
 
 <div class="buttons">
+
 
 <button id="askBtn">
 
@@ -267,8 +371,50 @@ Ask AI
 
 </button>
 
-<button id="clear
+
+
+<button id="clearBtn" class="secondary-btn">
+
+🗑️ Clear Chat
+
+</button>
+
+
+
+<button id="copyBtn" class="secondary-btn">
+
+📋 Copy Answer
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div id="chatArea">
+
+
+<div class="message ai">
+
+🤖 Hello! I am DENIS GODSON AI STUDY. Ask me anything.
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
 <section id="about" class="features">
+
 
 <h2>
 
@@ -276,31 +422,120 @@ About DENIS GODSON AI STUDY
 
 </h2>
 
-<p style="max-width:900px;margin:auto;line-height:1.8;">
 
-DENIS GODSON AI STUDY is an AI-powered learning platform built to help students understand difficult topics, solve mathematics step by step, generate quizzes, create flashcards, summarize notes, improve essays, and learn faster using Artificial Intelligence.
 
-Our goal is to provide free, smart, and accessible education for students everywhere.
+<p>
+
+DENIS GODSON AI STUDY is an AI-powered learning platform designed to help students learn faster, understand difficult topics, solve problems, create quizzes, generate flashcards, and improve their writing skills.
+
+<br><br>
+
+Our mission is to make quality AI education simple and accessible for students everywhere.
 
 </p>
 
+
+
 </section>
 
+
+
+
+
+<section class="features">
+
+
+<h2>
+
+Why Choose Us?
+
+</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h3>
+⚡ Fast Learning
+</h3>
+
+<p>
+Get quick explanations and study support anytime.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+🎓 Student Friendly
+</h3>
+
+<p>
+Simple answers designed for easy understanding.
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+🌍 Learn Anywhere
+</h3>
+
+<p>
+Study using your phone or computer.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
 <footer>
+
 
 <p>
 
 © 2026 DENIS GODSON AI STUDY
 
-<br><br>
+</p>
 
-Powered by Groq AI • Built with ❤️ by Denis Godson
+
+<p>
+
+Powered by AI • Built by Denis Godson
 
 </p>
 
+
 </footer>
 
+
+
+
+
 <script src="script.js"></script>
+
 
 </body>
 

@@ -1,106 +1,109 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
+const path = require("path");
 const Groq = require("groq-sdk");
-
-dotenv.config();
 
 const app = express();
 
 app.use(cors());
-app.use(express.json());
-app.use(express.static("."));
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname)));
+
+
+
+const client = new Groq({
+
+    apiKey: process.env.GROQ_API_KEY
+
 });
+
+
 
 app.post("/ask", async (req, res) => {
 
-  try {
 
-    const { question } = req.body;
+    try {
 
-    const completion = await groq.chat.completions.create({
 
-      model: "llama-3.3-70b-versatile",
+        const question = req.body.question;
 
-      messages: [
 
-        {
-          role: "system",
-          content: `You are DENIS GODSON AI STUDY.
 
-Your mission is to help students learn in a clear, friendly and professional way.
+        const completion = await client.chat.completions.create({
 
-Rules:
+            messages: [
 
-• Explain concepts simply.
+                {
+                    role: "system",
+                    content:
+                    "You are DENIS GODSON AI STUDY, a helpful AI tutor for students."
+                },
 
-• Solve mathematics step by step.
 
-• Generate quizzes with answers.
+                {
+                    role: "user",
+                    content: question
+                }
 
-• Create flashcards in this format:
+            ],
 
-Front: ...
 
-Back: ...
+            model: "llama-3.3-70b-versatile"
 
-• Summarize long notes into study points.
+        });
 
-• Improve essays while teaching the student.
 
-• Encourage learning instead of only giving final answers.
 
-Always format your responses neatly using headings and bullet points when appropriate.`
+        res.json({
 
-        },
+            answer:
+            completion.choices[0].message.content
 
-        {
+        });
 
-          role: "user",
 
-          content: question
 
-        }
+    } catch(error) {
 
-      ],
 
-      temperature: 0.4,
+        console.log(error);
 
-      max_completion_tokens: 2048
 
-    });
+        res.status(500).json({
 
-    res.json({
+            answer:
+            "AI server error. Check your API key."
 
-      answer:
-      completion.choices[0].message.content
+        });
 
-    });
 
-  }
+    }
 
-  catch (error) {
-
-    console.error(error);
-
-    res.status(500).json({
-
-      answer:
-      "❌ Sorry, DENIS GODSON AI STUDY is temporarily unavailable. Please try again."
-
-    });
-
-  }
 
 });
 
+
+
+app.get("/", (req,res)=>{
+
+    res.sendFile(
+        path.join(__dirname,"index.html")
+    );
+
+});
+
+
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
 
-  console.log(`🚀 DENIS GODSON AI STUDY is running on port ${PORT}`);
+app.listen(PORT, ()=>{
+
+
+    console.log(
+        `🚀 DENIS GODSON AI STUDY is running on port ${PORT}`
+    );
+
 
 });
