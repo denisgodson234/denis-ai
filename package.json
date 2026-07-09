@@ -1,7 +1,7 @@
 {
   "name": "denis-ai-study",
   "version": "1.0.0",
-  "description": "DENIS AI STUDY powered by Groq",
+  "description": "DENIS GODSON AI STUDY powered by Groq",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -10,6 +10,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "openai": "^5.10.2"
+    "groq-sdk": "^0.17.0"
   }
 }
