@@ -1,6 +1,5 @@
 /* =====================================
    DENIS GODSON AI STUDY V4
-   PART 1
 ===================================== */
 
 *{
@@ -37,7 +36,7 @@ body{
 
     padding:18px 8%;
 
-    background:white;
+    background:#ffffff;
 
     box-shadow:0 5px 15px rgba(0,0,0,.08);
 
@@ -45,15 +44,41 @@ body{
 
 }
 
+/* ===========================
+   LOGO
+=========================== */
+
 .logo{
 
-    font-size:24px;
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:22px;
 
     font-weight:bold;
 
     color:#2563eb;
 
 }
+
+.logo img{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+}
+
+/* ===========================
+   NAVIGATION LINKS
+=========================== */
 
 nav{
 
@@ -97,15 +122,15 @@ nav a:hover{
 
     font-size:48px;
 
-    margin-bottom:20px;
-
     color:#0f172a;
+
+    margin-bottom:20px;
 
 }
 
 .hero p{
 
-    max-width:750px;
+    max-width:760px;
 
     margin:auto;
 
@@ -166,7 +191,6 @@ button:hover{
     background:#15803d;
 
 }
-
 /* ===========================
    DASHBOARD
 =========================== */
@@ -189,6 +213,7 @@ button:hover{
 
 }
 
+
 .cards{
 
     display:grid;
@@ -198,6 +223,7 @@ button:hover{
     gap:25px;
 
 }
+
 
 .card{
 
@@ -213,11 +239,13 @@ button:hover{
 
 }
 
+
 .card:hover{
 
     transform:translateY(-8px);
 
 }
+
 
 .card h3{
 
@@ -227,6 +255,7 @@ button:hover{
 
 }
 
+
 .card p{
 
     color:#64748b;
@@ -235,9 +264,11 @@ button:hover{
 
 }
 
+
 /* ===========================
    CHAT CARD
 =========================== */
+
 
 .chat-card{
 
@@ -255,6 +286,12 @@ button:hover{
 
 }
 
+
+/* ===========================
+   SUBJECT BUTTONS
+=========================== */
+
+
 .subjects{
 
     display:flex;
@@ -268,6 +305,7 @@ button:hover{
     margin:25px 0;
 
 }
+
 
 .subject-btn{
 
@@ -285,11 +323,18 @@ button:hover{
 
 }
 
+
 .subject-btn:hover{
 
     background:#1d4ed8;
 
 }
+
+
+/* ===========================
+   TEXT AREA
+=========================== */
+
 
 textarea{
 
@@ -311,16 +356,30 @@ textarea{
 
 }
 
+
+textarea:focus{
+
+    border-color:#2563eb;
+
+}
+
+
+/* ===========================
+   CHAT BUTTON AREA
+=========================== */
+
+
 .buttons{
 
     margin-top:20px;
 
-}
-/* =====================================
-   DENIS GODSON AI STUDY V4
-   PART 2
-===================================== */
+    display:flex;
 
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
 /* ===========================
    CHAT AREA
 =========================== */
@@ -339,9 +398,8 @@ textarea{
 
     overflow-y:auto;
 
-    padding-right:5px;
-
 }
+
 
 .message{
 
@@ -359,6 +417,7 @@ textarea{
 
 }
 
+
 .message.user{
 
     align-self:flex-end;
@@ -368,6 +427,7 @@ textarea{
     color:white;
 
 }
+
 
 .message.ai{
 
@@ -379,15 +439,18 @@ textarea{
 
 }
 
+
 /* ===========================
    ABOUT SECTION
 =========================== */
+
 
 #about{
 
     background:white;
 
 }
+
 
 #about p{
 
@@ -403,9 +466,11 @@ textarea{
 
 }
 
+
 /* ===========================
    FOOTER
 =========================== */
+
 
 footer{
 
@@ -421,33 +486,18 @@ footer{
 
 }
 
+
 footer p{
 
     line-height:1.8;
 
 }
 
-/* ===========================
-   SCROLLBAR
-=========================== */
-
-#chatArea::-webkit-scrollbar{
-
-    width:8px;
-
-}
-
-#chatArea::-webkit-scrollbar-thumb{
-
-    background:#2563eb;
-
-    border-radius:20px;
-
-}
 
 /* ===========================
-   ANIMATIONS
+   ANIMATION
 =========================== */
+
 
 @keyframes fadeIn{
 
@@ -469,11 +519,14 @@ footer p{
 
 }
 
+
 /* ===========================
    MOBILE RESPONSIVE
 =========================== */
 
+
 @media(max-width:768px){
+
 
 .navbar{
 
@@ -485,13 +538,26 @@ footer p{
 
 }
 
+
 .logo{
+
+    justify-content:center;
 
     text-align:center;
 
-    font-size:20px;
+    font-size:18px;
 
 }
+
+
+.logo img{
+
+    width:50px;
+
+    height:50px;
+
+}
+
 
 nav{
 
@@ -503,11 +569,13 @@ nav{
 
 }
 
+
 .hero{
 
     padding:50px 20px;
 
 }
+
 
 .hero h1{
 
@@ -515,11 +583,13 @@ nav{
 
 }
 
+
 .hero p{
 
     font-size:16px;
 
 }
+
 
 .hero-buttons{
 
@@ -529,9 +599,8 @@ nav{
 
     gap:12px;
 
-    align-items:center;
-
 }
+
 
 .cards{
 
@@ -539,11 +608,13 @@ nav{
 
 }
 
+
 .chat-card{
 
     padding:20px;
 
 }
+
 
 .subjects{
 
@@ -551,27 +622,27 @@ nav{
 
 }
 
+
 .subject-btn{
 
     width:100%;
 
 }
 
-.buttons{
 
-    display:flex;
+.buttons{
 
     flex-direction:column;
 
-    gap:10px;
-
 }
+
 
 button{
 
     width:100%;
 
 }
+
 
 .message{
 
