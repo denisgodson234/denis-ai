@@ -233,7 +233,89 @@ askBtn.addEventListener("click", async ()=>{
 
     loading.textContent =
 
-    "🤖 DENIS GODSON AI STUDY is thinking...";
+    loading.innerHTML = `
+
+🤖 AI is thinking
+
+<div class="ai-loading">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+`;
+
+// ===========================
+// PREMIUM DASHBOARD COUNTERS
+// ===========================
+
+
+const counters = document.querySelectorAll(".counter");
+
+
+
+counters.forEach(counter => {
+
+
+    counter.innerText = "0";
+
+
+
+    const updateCounter = () => {
+
+
+
+        const target = +counter.getAttribute("data-target");
+
+
+
+        const current = +counter.innerText;
+
+
+
+        const increment = target / 100;
+
+
+
+        if(current < target){
+
+
+
+            counter.innerText = Math.ceil(
+                current + increment
+            );
+
+
+
+            setTimeout(updateCounter, 20);
+
+
+
+        } else {
+
+
+
+            counter.innerText = target.toLocaleString();
+
+
+
+        }
+
+
+
+    };
+
+
+
+    updateCounter();
+
+
+
+});
 
 
 
