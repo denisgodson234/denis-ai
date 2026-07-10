@@ -1,7 +1,8 @@
 // =====================================
-// DENIS GODSON AI STUDY VERSION 5
+// DENIS GODSON AI STUDY VERSION 6
 // SCRIPT.JS PART 1
 // =====================================
+
 
 
 let selectedSubject = "General Study";
@@ -11,6 +12,9 @@ let selectedMode = "Teacher Mode";
 
 
 let lastAnswer = "";
+
+let uploadedNotes = "";
+
 
 
 
@@ -35,11 +39,18 @@ const clearBtn = document.getElementById("clearBtn");
 const copyBtn = document.getElementById("copyBtn");
 
 
+const noteFile = document.getElementById("noteFile");
+
+
+const notesResult = document.getElementById("notesResult");
+
+
+
 
 
 
 // ===========================
-// SELECT SUBJECT
+// SUBJECT SELECTION
 // ===========================
 
 
@@ -49,11 +60,15 @@ function setSubject(subject){
     selectedSubject = subject;
 
 
+    if(questionInput){
 
-    questionInput.placeholder =
 
-    "Ask your " + subject + " question...";
+        questionInput.placeholder =
 
+        "Ask your " + subject + " question...";
+
+
+    }
 
 
 }
@@ -62,8 +77,9 @@ function setSubject(subject){
 
 
 
+
 // ===========================
-// SELECT AI MODE
+// AI MODE SELECTION
 // ===========================
 
 
@@ -76,7 +92,7 @@ function setMode(mode){
 
     addMessage(
 
-    "✅ AI Mode changed to: " + mode,
+    "✅ Learning mode changed to: " + mode,
 
     "ai"
 
@@ -89,12 +105,17 @@ function setMode(mode){
 
 
 
+
 // ===========================
-// ADD MESSAGE TO CHAT
+// CHAT MESSAGE DISPLAY
 // ===========================
 
 
 function addMessage(text,type){
+
+
+
+    if(!chatArea) return;
 
 
 
@@ -116,10 +137,7 @@ function addMessage(text,type){
 
 
 
-    chatArea.scrollTop =
-
-    chatArea.scrollHeight;
-
+    chatArea.scrollTop = chatArea.scrollHeight;
 
 
 }
@@ -130,7 +148,7 @@ function addMessage(text,type){
 
 
 // ===========================
-// GET MODE INSTRUCTION
+// AI TEACHING STYLE
 // ===========================
 
 
@@ -138,66 +156,66 @@ function getModeInstruction(){
 
 
 
-    switch(selectedMode){
+    if(selectedMode === "Teacher Mode"){
 
 
-
-        case "Teacher Mode":
-
-            return "Explain like a patient teacher. Use simple examples.";
-
-
-
-        case "Exam Mode":
-
-            return "Act like an exam tutor. Give exam-style answers and important points.";
-
-
-
-        case "Revision Mode":
-
-            return "Help the student revise. Create summaries, key points and memory tips.";
-
-
-
-        case "Creative Mode":
-
-            return "Help with creative ideas, projects and better ways to understand topics.";
-
-
-
-        default:
-
-            return "Be a helpful AI study assistant.";
+        return "Explain clearly like a patient teacher using simple examples.";
 
 
     }
 
 
 
+    if(selectedMode === "Exam Mode"){
+
+
+        return "Answer like an exam preparation tutor with important points.";
+
+
+    }
+
+
+
+    if(selectedMode === "Revision Mode"){
+
+
+        return "Create summaries, key points and memory tips.";
+
+
+    }
+
+
+
+    if(selectedMode === "Creative Mode"){
+
+
+        return "Use creative explanations and examples to help learning.";
+
+
+    }
+
+
+
+    return "Help the student learn effectively.";
+
 }
+
 // ===========================
-// ASK AI FUNCTION
+// NOTES FILE UPLOAD
 // ===========================
 
 
-askBtn.addEventListener("click", async ()=>{
+if(noteFile){
 
 
-    const question = questionInput.value.trim();
+noteFile.addEventListener("change",()=>{
+
+
+    const file = noteFile.files[0];
 
 
 
-    if(question === ""){
-
-
-        addMessage(
-
-        "⚠️ Please enter a question first.",
-
-        "ai"
-
-        );
+    if(!file){
 
 
         return;
@@ -208,102 +226,24 @@ askBtn.addEventListener("click", async ()=>{
 
 
 
-    addMessage(question,"user");
+
+    const reader = new FileReader();
 
 
 
-    questionInput.value = "";
+    reader.onload = function(event){
 
 
 
-    askBtn.disabled = true;
-
-
-    askBtn.textContent = "Thinking...";
+        uploadedNotes = event.target.result;
 
 
 
+        notesResult.innerHTML =
 
+        "✅ Notes uploaded successfully.<br><br>" +
 
-    const loading = document.createElement("div");
-
-
-    loading.className = "message ai";
-
-
-    loading.textContent =
-
-    loading.innerHTML = `
-
-🤖 AI is thinking
-
-<div class="ai-loading">
-
-<span></span>
-
-<span></span>
-
-<span></span>
-
-</div>
-
-`;
-
-// ===========================
-// PREMIUM DASHBOARD COUNTERS
-// ===========================
-
-
-const counters = document.querySelectorAll(".counter");
-
-
-
-counters.forEach(counter => {
-
-
-    counter.innerText = "0";
-
-
-
-    const updateCounter = () => {
-
-
-
-        const target = +counter.getAttribute("data-target");
-
-
-
-        const current = +counter.innerText;
-
-
-
-        const increment = target / 100;
-
-
-
-        if(current < target){
-
-
-
-            counter.innerText = Math.ceil(
-                current + increment
-            );
-
-
-
-            setTimeout(updateCounter, 20);
-
-
-
-        } else {
-
-
-
-            counter.innerText = target.toLocaleString();
-
-
-
-        }
+        file.name;
 
 
 
@@ -311,7 +251,9 @@ counters.forEach(counter => {
 
 
 
-    updateCounter();
+
+
+    reader.readAsText(file);
 
 
 
@@ -319,19 +261,104 @@ counters.forEach(counter => {
 
 
 
-    chatArea.appendChild(loading);
+}
 
 
 
 
 
-    const instruction = getModeInstruction();
+
+
+// ===========================
+// ANALYZE NOTES FUNCTION
+// ===========================
+
+
+async function analyzeNotes(type){
+
+
+
+    if(uploadedNotes === ""){
+
+
+
+        notesResult.innerHTML =
+
+        "⚠️ Please upload your notes first.";
+
+
+
+        return;
+
+
+
+    }
+
+
+
+
+
+    notesResult.innerHTML =
+
+    "🤖 AI is analyzing your notes...";
+
+
+
+
+
+
+    let request = "";
+
+
+
+
+
+    if(type === "summary"){
+
+
+        request =
+
+        "Summarize these notes into simple important points.";
+
+
+    }
+
+
+
+
+
+    if(type === "quiz"){
+
+
+        request =
+
+        "Create a quiz from these notes with answers.";
+
+
+    }
+
+
+
+
+
+    if(type === "flashcards"){
+
+
+        request =
+
+        "Create useful flashcards from these notes.";
+
+
+    }
+
+
 
 
 
 
 
     try{
+
 
 
         const response = await fetch("/ask",{
@@ -355,23 +382,19 @@ counters.forEach(counter => {
             body:JSON.stringify({
 
 
-
                 question:
 
 `
-You are DENIS GODSON AI STUDY.
+You are DENIS GODSON AI STUDY Version 6.
 
-Learning Mode:
-${selectedMode}
+Task:
+${request}
 
-Subject:
-${selectedSubject}
 
-Instruction:
-${instruction}
+Student Notes:
 
-Student Question:
-${question}
+${uploadedNotes}
+
 `
 
 
@@ -387,14 +410,203 @@ ${question}
 
 
 
+
         const data = await response.json();
 
 
 
 
 
-        loading.remove();
+        notesResult.innerHTML =
 
+        data.answer;
+
+
+
+
+
+    }
+
+
+
+
+
+    catch(error){
+
+
+
+        notesResult.innerHTML =
+
+        "❌ Unable to analyze notes. Try again.";
+
+
+
+        console.log(error);
+
+
+
+    }
+
+
+
+
+
+}
+
+// ===========================
+// ASK AI FUNCTION
+// ===========================
+
+
+if(askBtn){
+
+
+askBtn.addEventListener("click", async ()=>{
+
+
+
+    const question = questionInput.value.trim();
+
+
+
+    if(question === ""){
+
+
+        addMessage(
+
+        "⚠️ Please enter a question.",
+
+        "ai"
+
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+    addMessage(question,"user");
+
+
+
+    questionInput.value = "";
+
+
+
+    askBtn.disabled = true;
+
+
+
+    askBtn.textContent = "Thinking...";
+
+
+
+
+
+    const loading = document.createElement("div");
+
+
+
+    loading.className = "message ai";
+
+
+
+    loading.innerHTML = `
+
+    🤖 AI is thinking
+
+    <div class="ai-loading">
+
+    <span></span>
+
+    <span></span>
+
+    <span></span>
+
+    </div>
+
+    `;
+
+
+
+    chatArea.appendChild(loading);
+
+
+
+
+
+
+
+    try{
+
+
+
+        const response = await fetch("/ask",{
+
+
+
+            method:"POST",
+
+
+
+            headers:{
+
+
+                "Content-Type":"application/json"
+
+
+            },
+
+
+
+            body:JSON.stringify({
+
+
+                question:
+
+`
+
+You are DENIS GODSON AI STUDY Version 6.
+
+Learning Mode:
+${selectedMode}
+
+
+Subject:
+${selectedSubject}
+
+
+Instruction:
+${getModeInstruction()}
+
+
+Student Question:
+${question}
+
+`
+
+            })
+
+
+
+        });
+
+
+
+
+
+
+        const data = await response.json();
+
+
+
+
+        loading.remove();
 
 
 
@@ -407,7 +619,7 @@ ${question}
 
         addMessage(
 
-        data.answer || "No answer received.",
+        data.answer,
 
         "ai"
 
@@ -418,6 +630,8 @@ ${question}
 
     }
 
+
+
     catch(error){
 
 
@@ -426,10 +640,9 @@ ${question}
 
 
 
-
         addMessage(
 
-        "❌ Connection error. Please try again.",
+        "❌ AI connection error.",
 
         "ai"
 
@@ -459,6 +672,12 @@ ${question}
 
 
 
+}
+
+
+
+
+
 
 
 // ===========================
@@ -466,7 +685,11 @@ ${question}
 // ===========================
 
 
-clearBtn.addEventListener("click", ()=>{
+if(clearBtn){
+
+
+
+clearBtn.addEventListener("click",()=>{
 
 
 
@@ -474,9 +697,7 @@ clearBtn.addEventListener("click", ()=>{
 
     <div class="message ai">
 
-    🤖 Welcome back to DENIS GODSON AI STUDY Version 5.
-
-    Choose a mode and start learning.
+    🤖 Welcome to DENIS GODSON AI STUDY Version 6.
 
     </div>
 
@@ -492,6 +713,11 @@ clearBtn.addEventListener("click", ()=>{
 
 
 
+}
+
+
+
+
 
 
 
@@ -500,14 +726,18 @@ clearBtn.addEventListener("click", ()=>{
 // ===========================
 
 
-copyBtn.addEventListener("click", ()=>{
+if(copyBtn){
+
+
+
+copyBtn.addEventListener("click",()=>{
 
 
 
     if(lastAnswer === ""){
 
 
-        alert("No answer to copy yet.");
+        alert("No answer available.");
 
 
         return;
@@ -531,31 +761,15 @@ copyBtn.addEventListener("click", ()=>{
 
 
 
+}
+
+
+
+
+
+
 
 
 // ===========================
-// ENTER KEY SEND
-// ===========================
-
-
-questionInput.addEventListener("keydown",(event)=>{
-
-
-
-    if(event.key === "Enter" && !event.shiftKey){
-
-
-
-        event.preventDefault();
-
-
-
-        askBtn.click();
-
-
-
-    }
-
-
-
-});
+// DASHBOARD COUNTERS
+// =================

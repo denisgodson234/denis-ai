@@ -9,7 +9,7 @@
 
 
 <title>
-DENIS GODSON AI STUDY
+DENIS GODSON AI STUDY Version 6
 </title>
 
 
@@ -22,7 +22,6 @@ DENIS GODSON AI STUDY
 </head>
 
 
-
 <body>
 
 
@@ -31,7 +30,6 @@ DENIS GODSON AI STUDY
 
 
 <div class="logo">
-
 
 <img src="logo.png" alt="DENIS GODSON AI STUDY">
 
@@ -45,9 +43,7 @@ DENIS GODSON AI STUDY
 
 
 
-
 <nav>
-
 
 <a href="#home">
 Home
@@ -59,18 +55,17 @@ Dashboard
 </a>
 
 
+<a href="#notes">
+AI Notes
+</a>
+
+
 <a href="#chat">
 AI Chat
 </a>
 
 
-<a href="#about">
-About
-</a>
-
-
 </nav>
-
 
 
 </header>
@@ -79,46 +74,33 @@ About
 
 
 
-<!-- ===========================
-     PREMIUM HERO SECTION
-=========================== -->
-
-
 <section id="home" class="hero">
 
 
 
 <div class="ai-badge">
 
-🤖 POWERED BY ARTIFICIAL INTELLIGENCE
+🤖 VERSION 6 AI LEARNING SYSTEM
 
 </div>
 
 
 
-
-
 <h1>
 
-The Future Of
-
-<br>
-
-AI Powered Learning
+Learn Smarter With Your Personal AI Tutor
 
 </h1>
 
 
 
 
-
 <p>
 
-DENIS GODSON AI STUDY helps students learn faster,
-solve problems, prepare for exams, and understand difficult topics with intelligent AI assistance.
+DENIS GODSON AI STUDY helps students understand lessons,
+analyze notes, prepare for exams, and improve their learning using Artificial Intelligence.
 
 </p>
-
 
 
 
@@ -126,73 +108,27 @@ solve problems, prepare for exams, and understand difficult topics with intellig
 <div class="hero-buttons">
 
 
-<a href="#chat">
+<a href="#notes">
 
 <button class="premium-btn">
 
-Start Learning With AI
+Analyze My Notes
 
 </button>
 
 
 </a>
 
-
-
-
-<a href="#dashboard">
-
-
-<button class="outline-btn">
-
-Explore Dashboard
-
-</button>
-
-
-</a>
-
-
-</div>
-
-
-
-
-<div class="hero-glow"></div>
-
-
-
-</section>
-
-
-
-<h1>
-
-Your AI Study Partner
-
-</h1>
-
-
-
-<p>
-
-Learn faster with Denis Godson AI Study.
-Solve problems, create quizzes, summarize notes,
-and improve your understanding.
-
-</p>
-
-
-
-
-<div class="hero-buttons">
 
 
 <a href="#chat">
 
-<button>
-Start Learning
+<button class="outline-btn">
+
+Ask AI Tutor
+
 </button>
+
 
 </a>
 
@@ -201,9 +137,7 @@ Start Learning
 </div>
 
 
-
 </section>
-
 
 
 
@@ -211,17 +145,110 @@ Start Learning
 
 
 <!-- ===========================
-     PREMIUM AI DASHBOARD
+     AI NOTES ASSISTANT
 =========================== -->
 
 
-<section class="premium-dashboard">
+<section id="notes" class="features">
 
 
 
 <h2>
 
-Your AI Learning Dashboard
+📄 AI Notes Assistant
+
+</h2>
+
+
+
+<div class="notes-card">
+
+
+
+<h3>
+
+Upload Your Study Material
+
+</h3>
+
+
+
+<p>
+
+Upload notes and let AI summarize, create quizzes,
+and generate flashcards.
+
+</p>
+
+
+
+
+<input 
+type="file"
+id="noteFile"
+>
+
+
+
+<div class="notes-actions">
+
+
+<button onclick="analyzeNotes('summary')">
+
+📄 Summarize Notes
+
+</button>
+
+
+
+<button onclick="analyzeNotes('quiz')">
+
+📝 Create Quiz
+
+</button>
+
+
+
+<button onclick="analyzeNotes('flashcards')">
+
+🧠 Make Flashcards
+
+</button>
+
+
+
+</div>
+
+
+
+
+<div id="notesResult">
+
+
+AI notes results will appear here.
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+<!-- ===========================
+     STUDENT PROGRESS DASHBOARD
+=========================== -->
+
+
+<section id="dashboard" class="premium-dashboard">
+
+
+
+<h2>
+
+📊 Student Progress Dashboard
 
 </h2>
 
@@ -235,7 +262,7 @@ Your AI Learning Dashboard
 <div class="stat-card">
 
 
-<h3 class="counter" data-target="10000">
+<h3 class="counter" data-target="0">
 
 0
 
@@ -244,7 +271,7 @@ Your AI Learning Dashboard
 
 <p>
 
-🤖 AI Questions Answered
+🔥 Learning Streak
 
 </p>
 
@@ -258,7 +285,7 @@ Your AI Learning Dashboard
 <div class="stat-card">
 
 
-<h3 class="counter" data-target="4">
+<h3 class="counter" data-target="25">
 
 0
 
@@ -267,7 +294,7 @@ Your AI Learning Dashboard
 
 <p>
 
-🧠 Learning Modes
+📚 Topics Studied
 
 </p>
 
@@ -281,7 +308,7 @@ Your AI Learning Dashboard
 <div class="stat-card">
 
 
-<h3 class="counter" data-target="6">
+<h3 class="counter" data-target="50">
 
 0
 
@@ -290,7 +317,7 @@ Your AI Learning Dashboard
 
 <p>
 
-📚 Study Tools
+📝 Questions Practiced
 
 </p>
 
@@ -313,7 +340,7 @@ Your AI Learning Dashboard
 
 <p>
 
-AI Response System Active
+AI Tutor Online
 
 </p>
 
@@ -322,105 +349,30 @@ AI Response System Active
 
 
 
-
 </div>
+
 
 
 </section>
 
 
 
-<h2>
-AI Study Tools
-</h2>
 
 
 
 
-<div class="cards">
-
-
-
-
-<div class="card">
-
-
-<h3>
-🧮 Math Solver
-</h3>
-
-
-<p>
-Get step-by-step mathematics solutions.
-</p>
-
-
-<button onclick="setSubject('Math')">
-Use Tool
-</button>
-
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h3>
-📝 Quiz Generator
-</h3>
-
-
-<p>
-Create practice questions for revision.
-</p>
-
-
-<button onclick="setSubject('Quiz Generator')">
-Use Tool
-</button>
-
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h3>
-📚 Flashcards
-</h3>
-
-
-<p>
-Create quick revision flashcards.
-</p>
-
-
-<button onclick="setSubject('Flashcard Generator')">
-Use Tool
-</button>
-
-
-</div>
-</div>
-
-</section>
-
-
-
+<!-- ===========================
+     AI CHAT SECTION
+=========================== -->
 
 
 <section id="chat" class="features">
 
 
+
 <h2>
 
-AI Study Assistant
+🤖 AI Study Tutor
 
 </h2>
 
@@ -433,15 +385,13 @@ AI Study Assistant
 
 <h3>
 
-Choose AI Learning Mode
+Choose Learning Mode
 
 </h3>
 
 
 
-
 <div class="learning-modes">
-
 
 
 <button class="mode-btn" onclick="setMode('Teacher Mode')">
@@ -492,6 +442,7 @@ Choose Subject
 
 
 
+
 <div class="subjects">
 
 
@@ -504,11 +455,13 @@ Choose Subject
 
 
 
+
 <button class="subject-btn" onclick="setSubject('Science')">
 
 🔬 Science
 
 </button>
+
 
 
 
@@ -520,25 +473,10 @@ Choose Subject
 
 
 
+
 <button class="subject-btn" onclick="setSubject('General Study')">
 
 📚 General
-
-</button>
-
-
-
-<button class="subject-btn" onclick="setSubject('Quiz Generator')">
-
-📝 Quiz
-
-</button>
-
-
-
-<button class="subject-btn" onclick="setSubject('Flashcard Generator')">
-
-📖 Flashcards
 
 </button>
 
@@ -549,13 +487,13 @@ Choose Subject
 
 
 
+<textarea
 
-
-<textarea 
 id="question"
-placeholder="Ask your study question...">
-</textarea>
 
+placeholder="Ask your AI tutor anything..."
+
+></textarea>
 
 
 
@@ -574,7 +512,7 @@ Ask AI
 
 <button id="clearBtn" class="secondary-btn">
 
-🗑️ Clear Chat
+🗑️ Clear
 
 </button>
 
@@ -582,15 +520,12 @@ Ask AI
 
 <button id="copyBtn" class="secondary-btn">
 
-📋 Copy Answer
+📋 Copy
 
 </button>
 
 
-
 </div>
-
-
 
 
 
@@ -600,9 +535,13 @@ Ask AI
 
 <div class="message ai">
 
-🤖 Hello! I am DENIS GODSON AI STUDY.
 
-Choose a mode and ask me anything.
+🤖 Welcome to DENIS GODSON AI STUDY Version 6.
+
+
+</div>
+
+
 
 </div>
 
@@ -610,16 +549,139 @@ Choose a mode and ask me anything.
 
 </div>
 
-
-
-
-
-</div>
 
 
 </section>
 
-<section id="about" class="features">
+<!-- ===========================
+     VERSION 6 FEATURES
+=========================== -->
+
+
+<section class="features">
+
+
+<h2>
+
+🚀 Version 6 AI Features
+
+</h2>
+
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+
+<h3>
+
+📄 Smart Notes Analysis
+
+</h3>
+
+
+<p>
+
+Upload notes and let AI summarize lessons, create quizzes, and make revision cards.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+
+🎯 Exam Preparation
+
+</h3>
+
+
+<p>
+
+Practice questions, understand answers, and prepare for important exams.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+
+🧠 Smart Revision
+
+</h3>
+
+
+<p>
+
+Review important topics with AI generated summaries and explanations.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+
+⚡ Instant AI Support
+
+</h3>
+
+
+<p>
+
+Get learning help anytime from your personal AI study assistant.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ===========================
+     ABOUT SECTION
+=========================== -->
+
+
+<section class="features">
 
 
 
@@ -637,21 +699,23 @@ About DENIS GODSON AI STUDY
 
 <p>
 
-DENIS GODSON AI STUDY is an AI-powered learning platform created to help students study smarter.
+DENIS GODSON AI STUDY is an advanced AI learning platform designed to help students study smarter.
 
 </p>
 
 
+
 <p>
 
-Students can use AI to solve problems, understand difficult topics, generate quizzes, create flashcards, summarize notes, and improve their writing.
+The platform combines AI tutoring, notes analysis, revision tools, and exam preparation in one place.
 
 </p>
 
 
+
 <p>
 
-Version 5 introduces smarter learning modes that allow students to learn with different AI teaching styles.
+My goal is to make quality learning support available to students anywhere.
 
 </p>
 
@@ -669,110 +733,9 @@ Version 5 introduces smarter learning modes that allow students to learn with di
 
 
 
-<section class="features">
-
-
-<h2>
-
-Why Students Use Us
-
-</h2>
-
-
-
-
-<div class="cards">
-
-
-
-<div class="card">
-
-
-<h3>
-⚡ Fast Learning
-</h3>
-
-
-<p>
-
-Get quick explanations and study support anytime.
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h3>
-🎓 Student Friendly
-</h3>
-
-
-<p>
-
-Simple explanations that are easy to understand.
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h3>
-🌍 Available Anywhere
-</h3>
-
-
-<p>
-
-Study from your phone or computer.
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<h3>
-🤖 AI Powered
-</h3>
-
-
-<p>
-
-Modern artificial intelligence learning assistant.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
+<!-- ===========================
+     FOOTER
+=========================== -->
 
 
 <footer>
@@ -785,10 +748,9 @@ Modern artificial intelligence learning assistant.
 </p>
 
 
-
 <p>
 
-Powered by AI • Built by Denis Godson
+Powered by Artificial Intelligence • Built by Denis Godson
 
 </p>
 

@@ -1,7 +1,6 @@
 /* =====================================
-   DENIS GODSON AI STUDY
-   LUXURY MODERN THEME
-   STYLE.CSS PART 1
+   DENIS GODSON AI STUDY VERSION 6
+   LUXURY STYLE.CSS PART 1
 ===================================== */
 
 
@@ -13,10 +12,7 @@
 
     box-sizing:border-box;
 
-    font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
+    font-family:"Segoe UI", Arial, sans-serif;
 
 }
 
@@ -39,17 +35,6 @@ body{
     line-height:1.6;
 
 }
-
-
-
-/* ===========================
-   COLOR SYSTEM
-
-   Blue  🔵
-   Green 🟢
-   Black ⚫
-   White ⚪
-=========================== */
 
 
 
@@ -80,215 +65,48 @@ body{
 
 .navbar{
 
-
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-
     padding:18px 8%;
 
-
-    background:
-
-    rgba(5,5,5,0.85);
-
+    background:rgba(5,5,5,.85);
 
     backdrop-filter:blur(15px);
 
-
-    border-bottom:
-
-    1px solid rgba(255,255,255,0.1);
-
+    border-bottom:1px solid rgba(255,255,255,.1);
 
     position:sticky;
 
-
     top:0;
 
-
     z-index:1000;
-
 
 }
 
 
-
-
-
-/* ===========================
-   LOGO
-=========================== */
 
 
 .logo{
 
-
     display:flex;
 
     align-items:center;
 
-
-    gap:14px;
-
+    gap:15px;
 
     font-size:22px;
 
-
-    font-weight:800;
-
-
-    color:white;
-
-
-}
-
-
-
-
-.logo img{
-
-
-    width:65px;
-
-
-    height:65px;
-
-
-    object-fit:contain;
-
-
-    border-radius:50%;
-
-
-    border:
-
-    3px solid var(--green);
-
-
-    box-shadow:
-
-    0 0 20px rgba(16,185,129,.5);
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   NAV LINKS
-=========================== */
-
-
-nav{
-
-
-    display:flex;
-
-
-    gap:30px;
-
-
-}
-
-
-
-
-nav a{
-
-
-    text-decoration:none;
-
-
-    color:#e5e7eb;
-
-
-    font-weight:600;
-
-
-    transition:.3s;
-
-
-}
-
-
-
-
-nav a:hover{
-
-
-    color:var(--green);
-
-
-}
-/* ===========================
-   HERO SECTION
-=========================== */
-
-
-.hero{
-
-
-    min-height:80vh;
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    text-align:center;
-
-
-    padding:80px 8%;
-
-
-    background:
-
-
-    radial-gradient(
-
-    circle at top,
-
-    rgba(37,99,235,.35),
-
-    transparent 40%
-
-    );
-
-
-}
-
-
-
-
-.hero h1{
-
-
-    font-size:55px;
-
-
-    max-width:900px;
-
-
-    margin-bottom:25px;
-
-
     font-weight:900;
 
+}
+
+
+
+.logo span{
 
     background:
 
@@ -296,7 +114,7 @@ nav a:hover{
 
     90deg,
 
-    #ffffff,
+    white,
 
     #10b981,
 
@@ -307,9 +125,7 @@ nav a:hover{
 
     -webkit-background-clip:text;
 
-
     color:transparent;
-
 
 }
 
@@ -317,20 +133,55 @@ nav a:hover{
 
 
 
-.hero p{
+.logo img{
+
+    width:65px;
+
+    height:65px;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+    border:3px solid var(--green);
+
+    box-shadow:
+
+    0 0 25px rgba(16,185,129,.5);
+
+}
 
 
-    max-width:750px;
 
 
-    color:#cbd5e1;
+
+nav{
+
+    display:flex;
+
+    gap:25px;
+
+}
 
 
-    font-size:20px;
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
 
 
-    line-height:1.8;
 
+nav a:hover{
+
+    color:var(--green);
 
 }
 
@@ -340,39 +191,114 @@ nav a:hover{
 
 
 /* ===========================
-   BUTTONS
+   HERO SECTION
+=========================== */
+
+
+.hero{
+
+    min-height:85vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:80px 8%;
+
+    position:relative;
+
+}
+
+
+
+.ai-badge{
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    border:1px solid var(--green);
+
+    color:var(--green);
+
+    background:rgba(16,185,129,.1);
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:60px;
+
+    font-weight:900;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    white,
+
+    var(--green),
+
+    var(--blue)
+
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+
+
+.hero p{
+
+    max-width:800px;
+
+    color:#cbd5e1;
+
+    font-size:20px;
+
+    margin-top:25px;
+
+}
+/* ===========================
+   BUTTON SYSTEM
 =========================== */
 
 
 button{
 
-
-    margin-top:25px;
-
-
-    padding:15px 35px;
-
+    padding:14px 30px;
 
     border:none;
 
-
     border-radius:50px;
-
 
     cursor:pointer;
 
-
-    color:white;
-
-
-    font-size:16px;
-
+    font-size:15px;
 
     font-weight:700;
 
+    color:white;
 
     background:
-
 
     linear-gradient(
 
@@ -384,50 +310,44 @@ button{
 
     );
 
-
-    box-shadow:
-
-
-    0 10px 30px rgba(37,99,235,.35);
-
-
     transition:.3s;
 
-
 }
-
-
 
 
 
 button:hover{
 
-
     transform:translateY(-5px);
-
 
     box-shadow:
 
-
-    0 15px 40px rgba(16,185,129,.45);
-
+    0 15px 35px rgba(16,185,129,.35);
 
 }
 
 
+
+
+
+.outline-btn{
+
+    background:transparent;
+
+    border:2px solid var(--green);
+
+}
 
 
 
 .secondary-btn{
 
-
     background:#111827;
-
 
     border:1px solid var(--green);
 
-
 }
+
 
 
 
@@ -438,157 +358,53 @@ button:hover{
 =========================== */
 
 
-.features{
+.features,
 
+.premium-dashboard{
 
     padding:80px 8%;
 
-
 }
 
 
 
 
 
-.features h2{
+.features h2,
 
+.premium-dashboard h2{
 
     text-align:center;
 
-
     font-size:38px;
 
-
-    margin-bottom:50px;
-
+    margin-bottom:45px;
 
 }
+
+
 
 
 
 
 
 /* ===========================
-   LUXURY CARDS
+   AI NOTES ASSISTANT
 =========================== */
 
 
-.cards{
+.notes-card{
 
-
-    display:grid;
-
-
-    grid-template-columns:
-
-
-    repeat(auto-fit,minmax(260px,1fr));
-
-
-    gap:30px;
-
-
-}
-
-
-
-
-
-.card{
-
-
-    background:
-
-
-    rgba(255,255,255,.05);
-
-
-    backdrop-filter:blur(15px);
-
-
-    border:
-
-
-    1px solid rgba(255,255,255,.1);
-
-
-    padding:35px;
-
-
-    border-radius:25px;
-
-
-    transition:.4s;
-
-
-}
-
-
-
-
-
-.card:hover{
-
-
-    transform:translateY(-10px);
-
-
-    border-color:var(--green);
-
-
-    box-shadow:
-
-
-    0 20px 50px rgba(0,0,0,.5);
-
-
-}
-
-
-
-
-
-.card h3{
-
-
-    color:var(--green);
-
-
-    font-size:22px;
-
-
-    margin-bottom:15px;
-
-
-}
-
-
-
-
-
-.card p{
-
-
-    color:#cbd5e1;
-
-
-}
-/* ===========================
-   AI CHAT CARD
-=========================== */
-
-
-.chat-card{
-
-
-    max-width:950px;
-
+    max-width:900px;
 
     margin:auto;
 
+    padding:40px;
+
+    border-radius:30px;
+
 
     background:
-
 
     rgba(255,255,255,.06);
 
@@ -598,389 +414,36 @@ button:hover{
 
     border:
 
-
     1px solid rgba(255,255,255,.12);
 
 
-    padding:40px;
-
-
-    border-radius:30px;
-
-
-    box-shadow:
-
-
-    0 20px 60px rgba(0,0,0,.5);
-
-
-}
-
-
-
-
-
-.chat-card h3{
-
-
     text-align:center;
 
-
-    margin-bottom:25px;
-
-
 }
 
 
 
 
 
-/* ===========================
-   LEARNING MODES
-=========================== */
+.notes-card h3{
 
+    color:var(--green);
 
-.learning-modes,
-
-
-.subjects{
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    flex-wrap:wrap;
-
-
-    gap:15px;
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-
-.mode-btn,
-
-
-.subject-btn{
-
-
-    background:#111827;
-
-
-    border:
-
-
-    1px solid var(--green);
-
-
-    color:white;
-
-
-    padding:12px 22px;
-
-
-    border-radius:50px;
-
-
-    margin:0;
-
-
-}
-
-
-
-
-
-.mode-btn:hover,
-
-
-.subject-btn:hover{
-
-
-    background:var(--green);
-
-
-    color:black;
-
-
-}
-
-
-
-
-
-/* ===========================
-   TEXT AREA
-=========================== */
-
-
-textarea{
-
-
-    width:100%;
-
-
-    height:170px;
-
-
-    padding:20px;
-
-
-    border-radius:20px;
-
-
-    border:
-
-
-    1px solid rgba(255,255,255,.2);
-
-
-    background:#020617;
-
-
-    color:white;
-
-
-    font-size:16px;
-
-
-    outline:none;
-
-
-    resize:none;
-
-
-}
-
-
-
-
-
-textarea:focus{
-
-
-    border-color:var(--green);
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   CHAT AREA
-=========================== */
-
-
-#chatArea{
-
-
-    margin-top:30px;
-
-
-    padding:20px;
-
-
-    background:#020617;
-
-
-    border-radius:20px;
-
-
-    min-height:180px;
-
-
-}
-
-
-
-
-
-.message{
-
-
-    padding:15px 20px;
-
-
-    margin:12px 0;
-
-
-    border-radius:20px;
-
-
-    max-width:85%;
-
-
-    line-height:1.7;
-
-
-}
-
-
-
-
-
-.message.ai{
-
-
-    background:#ecfdf5;
-
-
-    color:#052e16;
-
-
-}
-
-
-
-
-
-.message.user{
-
-
-    background:#2563eb;
-
-
-    color:white;
-
-
-    margin-left:auto;
-
-
-}
-
-
-
-
-
-/* ===========================
-   ABOUT BOX
-=========================== */
-
-
-.about-box{
-
-
-    max-width:850px;
-
-
-    margin:auto;
-
-
-    padding:35px;
-
-
-    background:
-
-
-    rgba(255,255,255,.05);
-
-
-    border-radius:25px;
-
-
-    border:
-
-
-    1px solid rgba(255,255,255,.1);
-
-
-}
-
-
-
-
-
-.about-box p{
-
-
-    color:#cbd5e1;
-
+    font-size:25px;
 
     margin-bottom:15px;
 
-
 }
 
 
 
 
 
-/* ===========================
-   FOOTER
-=========================== */
-
-
-footer{
-
-
-    text-align:center;
-
-
-    padding:40px 20px;
-
-
-    background:#020617;
-
+.notes-card p{
 
     color:#cbd5e1;
 
-
-    border-top:
-
-
-    1px solid rgba(255,255,255,.1);
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   ANIMATION
-=========================== */
-
-
-@keyframes fadeIn{
-
-
-    from{
-
-
-        opacity:0;
-
-
-        transform:translateY(20px);
-
-
-    }
-
-
-
-    to{
-
-
-        opacity:1;
-
-
-        transform:translateY(0);
-
-
-    }
-
+    margin-bottom:25px;
 
 }
 
@@ -990,219 +453,64 @@ footer{
 
 
 
-/* ===========================
-   MOBILE DESIGN
-=========================== */
+/* FILE UPLOAD */
 
 
-@media(max-width:768px){
+#noteFile{
 
+    width:100%;
 
+    padding:18px;
 
-.navbar{
+    border-radius:15px;
 
+    background:#020617;
 
-    flex-direction:column;
+    border:1px dashed var(--green);
 
+    color:white;
 
-    gap:20px;
-
-
-}
-
-
-
-.logo{
-
-
-    font-size:17px;
-
+    margin-bottom:25px;
 
 }
 
 
 
-.logo img{
-
-
-    width:55px;
-
-
-    height:55px;
-
-
-}
 
 
 
-nav{
 
+.notes-actions{
 
-    flex-wrap:wrap;
-
+    display:flex;
 
     justify-content:center;
 
-
-}
-
-
-
-.hero h1{
-
-
-    font-size:35px;
-
-
-}
-
-
-
-.hero p{
-
-
-    font-size:16px;
-
-
-}
-
-
-
-.features{
-
-
-    padding:50px 20px;
-
-
-}
-
-
-
-.cards{
-
-
-    grid-template-columns:1fr;
-
-
-}
-
-
-
-.chat-card{
-
-
-    padding:20px;
-
-
-}
-
-
-
-.learning-modes,
-
-
-.subjects{
-
-
-    flex-direction:column;
-
-
-}
-
-
-
-.mode-btn,
-
-
-.subject-btn{
-
-
-    width:100%;
-
-
-}
-
-
-
-.buttons{
-
-
-    flex-direction:column;
-
-
-}
-
-
-
-.buttons button{
-
-
-    width:100%;
-
-
-}
-
-
-}
-/* ===========================
-   PREMIUM LOGO HEADER
-=========================== */
-
-
-.logo{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
+    flex-wrap:wrap;
 
     gap:15px;
 
-    font-size:24px;
-
-    font-weight:900;
-
-    letter-spacing:.5px;
-
-}
-
-
-
-.logo span{
-
-    background:linear-gradient(
-        90deg,
-        #ffffff,
-        #10b981,
-        #2563eb
-    );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
 }
 
 
 
 
 
-.logo img{
 
-    width:70px;
 
-    height:70px;
+#notesResult{
 
-    border-radius:50%;
+    margin-top:30px;
 
-    padding:5px;
+    padding:25px;
 
-    background:white;
+    min-height:120px;
 
-    border:3px solid #10b981;
+    border-radius:20px;
 
-    animation:logoGlow 3s infinite;
+    background:#020617;
+
+    color:#cbd5e1;
 
 }
 
@@ -1210,166 +518,12 @@ nav{
 
 
 
-@keyframes logoGlow{
 
 
-    0%{
 
-        box-shadow:
-        0 0 10px #10b981;
-
-    }
-
-
-    50%{
-
-        box-shadow:
-        0 0 35px #2563eb;
-
-    }
-
-
-    100%{
-
-        box-shadow:
-        0 0 10px #10b981;
-
-    }
-
-
-}
 /* ===========================
-   AI THINKING ANIMATION
+   DASHBOARD CARDS
 =========================== */
-
-
-.ai-loading{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-}
-
-
-
-.ai-loading span{
-
-    width:10px;
-
-    height:10px;
-
-    background:#10b981;
-
-    border-radius:50%;
-
-    animation:typing 1.4s infinite;
-
-}
-
-
-
-
-.ai-loading span:nth-child(2){
-
-    animation-delay:.2s;
-
-}
-
-
-
-.ai-loading span:nth-child(3){
-
-    animation-delay:.4s;
-
-}
-
-
-
-
-@keyframes typing{
-
-
-    0%,100%{
-
-        transform:translateY(0);
-
-        opacity:.5;
-
-    }
-
-
-
-    50%{
-
-        transform:translateY(-8px);
-
-        opacity:1;
-
-    }
-
-
-}
-/* ===========================
-   PREMIUM AI DASHBOARD
-=========================== */
-
-
-.premium-dashboard{
-
-    padding:80px 8%;
-
-    background:
-
-    linear-gradient(
-
-    180deg,
-
-    #050505,
-
-    #111827
-
-    );
-
-}
-
-
-
-
-
-.premium-dashboard h2{
-
-    text-align:center;
-
-    font-size:40px;
-
-    margin-bottom:50px;
-
-    background:
-
-    linear-gradient(
-
-    90deg,
-
-    #ffffff,
-
-    #10b981,
-
-    #2563eb
-
-    );
-
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-}
-
-
-
 
 
 .stats-container{
@@ -1380,6 +534,7 @@ nav{
 
     repeat(auto-fit,minmax(220px,1fr));
 
+
     gap:25px;
 
 }
@@ -1388,20 +543,8 @@ nav{
 
 
 
+
 .stat-card{
-
-
-    background:
-
-    rgba(255,255,255,0.06);
-
-
-    backdrop-filter:blur(20px);
-
-
-    border:
-
-    1px solid rgba(255,255,255,0.12);
 
 
     padding:35px;
@@ -1413,10 +556,29 @@ nav{
     text-align:center;
 
 
+    background:
+
+
+    rgba(255,255,255,.06);
+
+
+
+    backdrop-filter:blur(20px);
+
+
+
+    border:
+
+
+    1px solid rgba(255,255,255,.1);
+
+
+
     transition:.4s;
 
 
 }
+
 
 
 
@@ -1428,15 +590,16 @@ nav{
     transform:translateY(-10px);
 
 
-    border-color:#10b981;
+    border-color:var(--green);
 
 
     box-shadow:
 
-    0 20px 50px rgba(16,185,129,.25);
+    0 20px 50px rgba(16,185,129,.2);
 
 
 }
+
 
 
 
@@ -1453,15 +616,17 @@ nav{
 
     background:
 
+
     linear-gradient(
 
     90deg,
 
-    #10b981,
+    var(--green),
 
-    #2563eb
+    var(--blue)
 
     );
+
 
 
     -webkit-background-clip:text;
@@ -1470,10 +635,8 @@ nav{
     color:transparent;
 
 
-    margin-bottom:15px;
-
-
 }
+
 
 
 
@@ -1485,148 +648,92 @@ nav{
     color:#cbd5e1;
 
 
-    font-size:16px;
+    margin-top:15px;
 
 
 }
 /* ===========================
-   PREMIUM HERO DESIGN
+   AI CHAT SECTION
 =========================== */
 
 
-.hero{
+.chat-card{
 
-    position:relative;
+    max-width:950px;
 
-    overflow:hidden;
+    margin:auto;
 
-    min-height:90vh;
+    padding:40px;
 
-    display:flex;
+    border-radius:30px;
 
-    flex-direction:column;
+    background:
 
-    justify-content:center;
+    rgba(255,255,255,.06);
 
-    align-items:center;
+
+    backdrop-filter:blur(20px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.12);
+
+}
+
+
+
+
+
+.chat-card h3{
 
     text-align:center;
 
-}
-
-
-
-
-.ai-badge{
-
-    display:inline-block;
-
-    padding:10px 22px;
-
-    border-radius:50px;
-
-    background:
-
-    rgba(16,185,129,.15);
-
-    border:
-
-    1px solid #10b981;
-
-    color:#10b981;
-
-    font-weight:700;
-
-    font-size:14px;
-
     margin-bottom:25px;
 
-    animation:pulseBadge 3s infinite;
-
 }
 
 
 
 
 
-.hero h1{
-
-    font-size:65px;
-
-    line-height:1.1;
-
-    font-weight:900;
-
-    max-width:900px;
-
-}
 
 
+/* ===========================
+   MODE AND SUBJECT BUTTONS
+=========================== */
 
 
+.learning-modes,
 
-.hero p{
-
-    max-width:800px;
-
-    margin-top:25px;
-
-    color:#cbd5e1;
-
-    font-size:20px;
-
-}
-
-
-
-
-
-.hero-buttons{
+.subjects{
 
     display:flex;
 
-    gap:20px;
+    justify-content:center;
 
     flex-wrap:wrap;
 
-    justify-content:center;
+    gap:15px;
 
-    margin-top:40px;
-
-}
-
-
-
-
-.premium-btn{
-
-    background:
-
-    linear-gradient(
-
-    135deg,
-
-    #2563eb,
-
-    #10b981
-
-    );
+    margin-bottom:30px;
 
 }
 
 
 
 
+.mode-btn,
 
-.outline-btn{
+.subject-btn{
 
-    background:transparent;
+    margin:0;
 
-    border:
+    padding:12px 22px;
 
-    2px solid #10b981;
+    background:#111827;
 
-    color:white;
+    border:1px solid var(--green);
 
 }
 
@@ -1634,9 +741,11 @@ nav{
 
 
 
-.outline-btn:hover{
+.mode-btn:hover,
 
-    background:#10b981;
+.subject-btn:hover{
+
+    background:var(--green);
 
     color:black;
 
@@ -1646,31 +755,41 @@ nav{
 
 
 
-.hero-glow{
 
-    position:absolute;
 
-    width:500px;
+/* ===========================
+   QUESTION AREA
+=========================== */
 
-    height:500px;
 
-    background:
+textarea{
 
-    radial-gradient(
+    width:100%;
 
-    circle,
+    height:160px;
 
-    rgba(37,99,235,.35),
+    padding:20px;
 
-    transparent 70%
+    border-radius:20px;
 
-    );
+    background:#020617;
 
-    top:20%;
+    color:white;
 
-    z-index:-1;
+    border:1px solid rgba(255,255,255,.2);
 
-    animation:heroMove 8s infinite alternate;
+    resize:none;
+
+    outline:none;
+
+}
+
+
+
+
+textarea:focus{
+
+    border-color:var(--green);
 
 }
 
@@ -1678,19 +797,275 @@ nav{
 
 
 
-@keyframes pulseBadge{
+
+
+/* ===========================
+   CHAT MESSAGES
+=========================== */
+
+
+#chatArea{
+
+    margin-top:30px;
+
+    padding:20px;
+
+    background:#020617;
+
+    border-radius:20px;
+
+}
+
+
+
+
+
+.message{
+
+    padding:15px 20px;
+
+    margin:12px 0;
+
+    border-radius:20px;
+
+    max-width:85%;
+
+    animation:fadeIn .3s ease;
+
+}
+
+
+
+
+
+.message.ai{
+
+    background:#ecfdf5;
+
+    color:#052e16;
+
+}
+
+
+
+
+
+.message.user{
+
+    background:var(--blue);
+
+    color:white;
+
+    margin-left:auto;
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   FEATURE CARDS
+=========================== */
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+
+
+.card{
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+    backdrop-filter:blur(20px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.1);
+
+
+    transition:.4s;
+
+}
+
+
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--green);
+
+}
+
+
+
+
+
+.card h3{
+
+    color:var(--green);
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.card p{
+
+    color:#cbd5e1;
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   ABOUT SECTION
+=========================== */
+
+
+.about-box{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:35px;
+
+    border-radius:25px;
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+    border:
+
+    1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+
+
+.about-box p{
+
+    color:#cbd5e1;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   AI LOADING ANIMATION
+=========================== */
+
+
+.ai-loading{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:10px;
+
+}
+
+
+
+
+
+.ai-loading span{
+
+    width:10px;
+
+    height:10px;
+
+    background:var(--green);
+
+    border-radius:50%;
+
+    animation:typing 1.4s infinite;
+
+}
+
+
+
+
+
+.ai-loading span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+
+
+
+
+.ai-loading span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+
+
+
+
+@keyframes typing{
 
 
     0%,100%{
 
-        box-shadow:0 0 10px #10b981;
+        transform:translateY(0);
 
     }
+
 
 
     50%{
 
-        box-shadow:0 0 35px #10b981;
+        transform:translateY(-8px);
 
     }
 
@@ -1701,19 +1076,26 @@ nav{
 
 
 
-@keyframes heroMove{
+
+
+@keyframes fadeIn{
 
 
     from{
 
-        transform:translateX(-80px);
+        opacity:0;
+
+        transform:translateY(15px);
 
     }
 
 
+
     to{
 
-        transform:translateX(80px);
+        opacity:1;
+
+        transform:translateY(0);
 
     }
 
@@ -1724,7 +1106,62 @@ nav{
 
 
 
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+
+footer{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    background:#020617;
+
+    color:#cbd5e1;
+
+    border-top:
+
+    1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
+
 @media(max-width:768px){
+
+
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+nav{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
 
 
 .hero h1{
@@ -1734,6 +1171,7 @@ nav{
 }
 
 
+
 .hero p{
 
     font-size:16px;
@@ -1741,9 +1179,56 @@ nav{
 }
 
 
-.hero-buttons{
+
+.features,
+
+.premium-dashboard{
+
+    padding:50px 20px;
+
+}
+
+
+
+.cards,
+
+.stats-container{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.notes-card,
+
+.chat-card{
+
+    padding:20px;
+
+}
+
+
+
+.learning-modes,
+
+.subjects,
+
+.notes-actions{
 
     flex-direction:column;
+
+}
+
+
+
+.mode-btn,
+
+.subject-btn,
+
+.notes-actions button{
+
+    width:100%;
 
 }
 
