@@ -1,83 +1,190 @@
 // =====================================
-// DENIS GODSON AI STUDY V4
+// DENIS GODSON AI STUDY VERSION 5
 // SCRIPT.JS PART 1
 // =====================================
 
 
 let selectedSubject = "General Study";
 
+
+let selectedMode = "Teacher Mode";
+
+
 let lastAnswer = "";
+
+
+
+
+// ===========================
+// ELEMENTS
+// ===========================
 
 
 const askBtn = document.getElementById("askBtn");
 
+
 const questionInput = document.getElementById("question");
+
 
 const chatArea = document.getElementById("chatArea");
 
+
 const clearBtn = document.getElementById("clearBtn");
+
 
 const copyBtn = document.getElementById("copyBtn");
 
 
 
+
+
 // ===========================
-// SELECT SUBJECT / TOOL
+// SELECT SUBJECT
 // ===========================
 
 
 function setSubject(subject){
 
+
     selectedSubject = subject;
 
 
+
     questionInput.placeholder =
-    "Enter your " + subject + " topic or question...";
+
+    "Ask your " + subject + " question...";
+
 
 
 }
 
 
 
+
+
 // ===========================
-// ADD CHAT MESSAGE
+// SELECT AI MODE
 // ===========================
 
 
-function addMessage(text, type){
+function setMode(mode){
+
+
+    selectedMode = mode;
+
+
+
+    addMessage(
+
+    "✅ AI Mode changed to: " + mode,
+
+    "ai"
+
+    );
+
+
+}
+
+
+
+
+
+// ===========================
+// ADD MESSAGE TO CHAT
+// ===========================
+
+
+function addMessage(text,type){
+
 
 
     const message = document.createElement("div");
 
 
+
     message.className =
+
     "message " + type;
+
 
 
     message.textContent = text;
 
 
+
     chatArea.appendChild(message);
 
 
+
     chatArea.scrollTop =
+
     chatArea.scrollHeight;
+
 
 
 }
 
 
 
+
+
+
 // ===========================
-// ASK AI
+// GET MODE INSTRUCTION
+// ===========================
+
+
+function getModeInstruction(){
+
+
+
+    switch(selectedMode){
+
+
+
+        case "Teacher Mode":
+
+            return "Explain like a patient teacher. Use simple examples.";
+
+
+
+        case "Exam Mode":
+
+            return "Act like an exam tutor. Give exam-style answers and important points.";
+
+
+
+        case "Revision Mode":
+
+            return "Help the student revise. Create summaries, key points and memory tips.";
+
+
+
+        case "Creative Mode":
+
+            return "Help with creative ideas, projects and better ways to understand topics.";
+
+
+
+        default:
+
+            return "Be a helpful AI study assistant.";
+
+
+    }
+
+
+
+}
+// ===========================
+// ASK AI FUNCTION
 // ===========================
 
 
 askBtn.addEventListener("click", async ()=>{
 
 
-    const question =
-    questionInput.value.trim();
+    const question = questionInput.value.trim();
 
 
 
@@ -85,18 +192,24 @@ askBtn.addEventListener("click", async ()=>{
 
 
         addMessage(
-        "Please enter a question first.",
+
+        "⚠️ Please enter a question first.",
+
         "ai"
+
         );
 
 
         return;
 
+
     }
 
 
 
+
     addMessage(question,"user");
+
 
 
     questionInput.value = "";
@@ -105,199 +218,164 @@ askBtn.addEventListener("click", async ()=>{
 
     askBtn.disabled = true;
 
-    askBtn.textContent =
-    "Thinking...";
+
+    askBtn.textContent = "Thinking...";
 
 
 
-    const loadingMessage =
-    document.createElement("div");
 
 
-    loadingMessage.className =
-    "message ai";
+    const loading = document.createElement("div");
 
 
-    loadingMessage.textContent =
+    loading.className = "message ai";
+
+
+    loading.textContent =
+
     "🤖 DENIS GODSON AI STUDY is thinking...";
 
 
-    chatArea.appendChild(loadingMessage);
+
+    chatArea.appendChild(loading);
 
 
 
-    let instruction = "";
+
+
+    const instruction = getModeInstruction();
 
 
 
-    switch(selectedSubject){
 
 
-        case "Math":
+    try{
 
-            instruction =
-            "Solve this mathematics question step by step and explain clearly.";
 
-        break;
+        const response = await fetch("/ask",{
 
 
 
-        case "Science":
-
-            instruction =
-            "Explain this science topic in simple student-friendly language.";
-
-        break;
+            method:"POST",
 
 
 
-        case "Essay Writing":
-
-            instruction =
-            "Help the student improve this essay with structure and ideas.";
-
-        break;
+            headers:{
 
 
+                "Content-Type":"application/json"
 
-        case "Quiz Generator":
 
-            instruction =
-            "Generate a quiz with questions and answers for this topic.";
-
-        break;
+            },
 
 
 
-        case "Flashcard Generator":
-
-            instruction =
-            "Create study flashcards. Use this format:\n\nFront: Question\nBack: Answer";
-
-        break;
+            body:JSON.stringify({
 
 
 
-        case "Summarizer":
+                question:
 
-            instruction =
-            "Summarize this information into short study notes.";
+`
+You are DENIS GODSON AI STUDY.
 
-        break;
+Learning Mode:
+${selectedMode}
 
-
-
-        default:
-
-            instruction =
-            "Answer as a helpful AI tutor.";
-
-    }
-    // ===========================
-// SEND REQUEST TO SERVER
-// ===========================
-
-
-try{
-
-
-    const response = await fetch("/ask",{
-
-
-        method:"POST",
-
-
-        headers:{
-
-
-            "Content-Type":"application/json"
-
-
-        },
-
-
-        body:JSON.stringify({
-
-
-            question:
-
-`You are DENIS GODSON AI STUDY.
-
-Study mode:
+Subject:
 ${selectedSubject}
 
 Instruction:
 ${instruction}
 
-Student question:
-${question}`
+Student Question:
+${question}
+`
 
 
-        })
-
-
-    });
-
-
-
-    const data =
-    await response.json();
+            })
 
 
 
-    loadingMessage.remove();
+        });
 
 
 
-    lastAnswer =
-    data.answer;
 
 
 
-    addMessage(
+
+        const data = await response.json();
+
+
+
+
+
+        loading.remove();
+
+
+
+
+
+        lastAnswer = data.answer;
+
+
+
+
+
+        addMessage(
 
         data.answer || "No answer received.",
 
         "ai"
 
-    );
+        );
 
 
 
-}
 
+    }
 
-catch(error){
-
-
-    loadingMessage.remove();
+    catch(error){
 
 
 
-    addMessage(
-
-    "❌ Unable to connect to AI. Please try again.",
-
-    "ai"
-
-    );
-
-
-    console.error(error);
-
-
-}
+        loading.remove();
 
 
 
-askBtn.disabled = false;
+
+        addMessage(
+
+        "❌ Connection error. Please try again.",
+
+        "ai"
+
+        );
 
 
-askBtn.textContent =
-"Ask AI";
+
+        console.log(error);
+
+
+
+    }
+
+
+
+
+
+    askBtn.disabled = false;
+
+
+
+    askBtn.textContent = "Ask AI";
+
 
 
 });
+
+
 
 
 
@@ -309,28 +387,29 @@ askBtn.textContent =
 clearBtn.addEventListener("click", ()=>{
 
 
-    chatArea.innerHTML = `
 
+    chatArea.innerHTML = `
 
     <div class="message ai">
 
+    🤖 Welcome back to DENIS GODSON AI STUDY Version 5.
 
-    🤖 Welcome to DENIS GODSON AI STUDY!
-
-
-    Select a tool and ask your question.
-
+    Choose a mode and start learning.
 
     </div>
 
-
     `;
+
 
 
     lastAnswer = "";
 
 
+
 });
+
+
+
 
 
 
@@ -342,14 +421,19 @@ clearBtn.addEventListener("click", ()=>{
 copyBtn.addEventListener("click", ()=>{
 
 
+
     if(lastAnswer === ""){
 
 
-        alert("No answer available yet.");
+        alert("No answer to copy yet.");
+
 
         return;
 
+
     }
+
+
 
 
 
@@ -365,24 +449,31 @@ copyBtn.addEventListener("click", ()=>{
 
 
 
+
+
 // ===========================
-// ENTER KEY TO SEND
+// ENTER KEY SEND
 // ===========================
 
 
 questionInput.addEventListener("keydown",(event)=>{
 
 
+
     if(event.key === "Enter" && !event.shiftKey){
+
 
 
         event.preventDefault();
 
 
+
         askBtn.click();
 
 
+
     }
+
 
 
 });

@@ -7,16 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DENIS GODSON AI STUDY</title>
+
+<title>
+DENIS GODSON AI STUDY
+</title>
+
 
 <link rel="icon" type="image/png" href="logo.png">
 
+
 <link rel="stylesheet" href="style.css">
+
 
 </head>
 
 
+
 <body>
+
 
 
 <header class="navbar">
@@ -24,35 +32,45 @@
 
 <div class="logo">
 
-<img src="logo.png" alt="DENIS GODSON AI STUDY Logo">
+
+<img src="logo.png" alt="DENIS GODSON AI STUDY">
+
 
 <span>
-DENIS GODSON AI STUDY
+🎓 DENIS GODSON AI STUDY
 </span>
+
 
 </div>
 
 
 
+
 <nav>
 
-<a href="#">
+
+<a href="#home">
 Home
 </a>
+
 
 <a href="#dashboard">
 Dashboard
 </a>
 
+
 <a href="#chat">
 AI Chat
 </a>
+
 
 <a href="#about">
 About
 </a>
 
+
 </nav>
+
 
 
 </header>
@@ -60,34 +78,34 @@ About
 
 
 
-<section class="hero">
+
+<section id="home" class="hero">
+
 
 
 <h1>
 
-Welcome to
-
-<br>
-
-DENIS GODSON AI STUDY
+Your AI Study Partner
 
 </h1>
 
 
+
 <p>
 
-Your intelligent study companion powered by Artificial Intelligence.
-
-Study smarter. Solve assignments. Generate quizzes. Master every subject.
+Learn faster with Artificial Intelligence.
+Solve problems, create quizzes, summarize notes,
+and improve your understanding.
 
 </p>
+
 
 
 
 <div class="hero-buttons">
 
 
-<a href="#dashboard">
+<a href="#chat">
 
 <button>
 Start Learning
@@ -97,21 +115,14 @@ Start Learning
 
 
 
-<a href="#chat">
-
-<button class="secondary-btn">
-
-Open AI Chat
-
-</button>
-
-</a>
-
-
 </div>
 
 
+
 </section>
+
+
+
 
 
 
@@ -119,39 +130,21 @@ Open AI Chat
 <section id="dashboard" class="features">
 
 
+
 <h2>
-AI Learning Dashboard
+AI Study Tools
 </h2>
+
 
 
 
 <div class="cards">
 
 
-<div class="card">
-
-<h3>
-💬 AI Tutor
-</h3>
-
-
-<p>
-Ask questions and receive simple explanations.
-</p>
-
-
-<button onclick="document.getElementById('chat').scrollIntoView()">
-
-Open
-
-</button>
-
-
-</div>
-
 
 
 <div class="card">
+
 
 <h3>
 🧮 Math Solver
@@ -159,35 +152,12 @@ Open
 
 
 <p>
-Solve mathematics step by step.
+Get step-by-step mathematics solutions.
 </p>
 
 
 <button onclick="setSubject('Math')">
-
 Use Tool
-
-</button>
-
-
-</div>
-
-<div class="card">
-
-<h3>
-🔬 Science
-</h3>
-
-
-<p>
-Understand science topics with simple explanations.
-</p>
-
-
-<button onclick="setSubject('Science')">
-
-Use Tool
-
 </button>
 
 
@@ -197,6 +167,7 @@ Use Tool
 
 
 <div class="card">
+
 
 <h3>
 📝 Quiz Generator
@@ -204,14 +175,12 @@ Use Tool
 
 
 <p>
-Create practice questions and answers.
+Create practice questions for revision.
 </p>
 
 
 <button onclick="setSubject('Quiz Generator')">
-
 Use Tool
-
 </button>
 
 
@@ -221,6 +190,7 @@ Use Tool
 
 
 <div class="card">
+
 
 <h3>
 📚 Flashcards
@@ -228,49 +198,19 @@ Use Tool
 
 
 <p>
-Create flashcards for faster revision.
+Create quick revision flashcards.
 </p>
 
 
 <button onclick="setSubject('Flashcard Generator')">
-
 Use Tool
-
 </button>
 
 
 </div>
-
-
-
-
-<div class="card">
-
-<h3>
-✍️ Essay Helper
-</h3>
-
-
-<p>
-Improve writing and organize ideas.
-</p>
-
-
-<button onclick="setSubject('Essay Writing')">
-
-Use Tool
-
-</button>
-
-
-</div>
-
-
-
 </div>
 
 </section>
-
 
 
 
@@ -281,7 +221,7 @@ Use Tool
 
 <h2>
 
-AI Study Chat
+AI Study Assistant
 
 </h2>
 
@@ -294,13 +234,67 @@ AI Study Chat
 
 <h3>
 
-Choose Study Mode
+Choose AI Learning Mode
+
+</h3>
+
+
+
+
+<div class="learning-modes">
+
+
+
+<button class="mode-btn" onclick="setMode('Teacher Mode')">
+
+👨‍🏫 Teacher Mode
+
+</button>
+
+
+
+<button class="mode-btn" onclick="setMode('Exam Mode')">
+
+📝 Exam Mode
+
+</button>
+
+
+
+<button class="mode-btn" onclick="setMode('Revision Mode')">
+
+🧠 Revision Mode
+
+</button>
+
+
+
+<button class="mode-btn" onclick="setMode('Creative Mode')">
+
+✨ Creative Mode
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<h3>
+
+Choose Subject
 
 </h3>
 
 
 
 <div class="subjects">
+
 
 
 <button class="subject-btn" onclick="setSubject('Math')">
@@ -335,17 +329,17 @@ Choose Study Mode
 
 
 
-<button class="subject-btn" onclick="setSubject('Flashcard Generator')">
+<button class="subject-btn" onclick="setSubject('Quiz Generator')">
 
-📖 Flashcards
+📝 Quiz
 
 </button>
 
 
 
-<button class="subject-btn" onclick="setSubject('Quiz Generator')">
+<button class="subject-btn" onclick="setSubject('Flashcard Generator')">
 
-📝 Quiz
+📖 Flashcards
 
 </button>
 
@@ -357,7 +351,13 @@ Choose Study Mode
 
 
 
-<textarea id="question" placeholder="Ask your study question..."></textarea>
+
+<textarea 
+id="question"
+placeholder="Ask your study question...">
+</textarea>
+
+
 
 
 
@@ -388,7 +388,9 @@ Ask AI
 </button>
 
 
+
 </div>
+
 
 
 
@@ -399,12 +401,17 @@ Ask AI
 
 <div class="message ai">
 
-🤖 Hello! I am DENIS GODSON AI STUDY. Ask me anything.
+🤖 Hello! I am DENIS GODSON AI STUDY.
+
+Choose a mode and ask me anything.
 
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -416,6 +423,7 @@ Ask AI
 <section id="about" class="features">
 
 
+
 <h2>
 
 About DENIS GODSON AI STUDY
@@ -424,19 +432,39 @@ About DENIS GODSON AI STUDY
 
 
 
+
+<div class="about-box">
+
+
 <p>
 
-DENIS GODSON AI STUDY is an AI-powered learning platform designed to help students learn faster, understand difficult topics, solve problems, create quizzes, generate flashcards, and improve their writing skills.
+DENIS GODSON AI STUDY is an AI-powered learning platform created to help students study smarter.
 
-<br><br>
+</p>
 
-Our mission is to make quality AI education simple and accessible for students everywhere.
+
+<p>
+
+Students can use AI to solve problems, understand difficult topics, generate quizzes, create flashcards, summarize notes, and improve their writing.
+
+</p>
+
+
+<p>
+
+Version 5 introduces smarter learning modes that allow students to learn with different AI teaching styles.
 
 </p>
 
 
 
+</div>
+
+
+
 </section>
+
+
 
 
 
@@ -447,9 +475,10 @@ Our mission is to make quality AI education simple and accessible for students e
 
 <h2>
 
-Why Choose Us?
+Why Students Use Us
 
 </h2>
+
 
 
 
@@ -459,13 +488,18 @@ Why Choose Us?
 
 <div class="card">
 
+
 <h3>
 ⚡ Fast Learning
 </h3>
 
+
 <p>
+
 Get quick explanations and study support anytime.
+
 </p>
+
 
 </div>
 
@@ -473,14 +507,19 @@ Get quick explanations and study support anytime.
 
 
 <div class="card">
+
 
 <h3>
 🎓 Student Friendly
 </h3>
 
+
 <p>
-Simple answers designed for easy understanding.
+
+Simple explanations that are easy to understand.
+
 </p>
+
 
 </div>
 
@@ -489,13 +528,38 @@ Simple answers designed for easy understanding.
 
 <div class="card">
 
+
 <h3>
-🌍 Learn Anywhere
+🌍 Available Anywhere
 </h3>
 
+
 <p>
-Study using your phone or computer.
+
+Study from your phone or computer.
+
 </p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h3>
+🤖 AI Powered
+</h3>
+
+
+<p>
+
+Modern artificial intelligence learning assistant.
+
+</p>
+
 
 </div>
 
@@ -505,6 +569,7 @@ Study using your phone or computer.
 
 
 </section>
+
 
 
 
@@ -521,11 +586,13 @@ Study using your phone or computer.
 </p>
 
 
+
 <p>
 
 Powered by AI • Built by Denis Godson
 
 </p>
+
 
 
 </footer>
@@ -537,6 +604,8 @@ Powered by AI • Built by Denis Godson
 <script src="script.js"></script>
 
 
+
 </body>
+
 
 </html>

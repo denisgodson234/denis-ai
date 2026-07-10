@@ -1,15 +1,17 @@
 {
-  "name": "denis-ai-study",
-  "version": "1.0.0",
-  "description": "DENIS GODSON AI STUDY powered by Groq",
+  "name": "denis-godson-ai-study",
+  "version": "5.0.0",
+  "description": "DENIS GODSON AI STUDY - AI powered learning platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "groq-sdk": "^0.17.0"
+    "express": "^4.18.3",
+    "groq-sdk": "^0.7.0"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
