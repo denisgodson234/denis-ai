@@ -1,6 +1,6 @@
 /* =====================================
-   DENIS GODSON AI STUDY VERSION 6
-   LUXURY STYLE.CSS PART 1
+   DENIS GODSON AI STUDY VERSION 6 CLEAN
+   STYLE.CSS PART 1
 ===================================== */
 
 
@@ -38,21 +38,22 @@ body{
 
 
 
+
+
 :root{
 
     --blue:#2563eb;
 
     --green:#10b981;
 
-    --black:#050505;
-
-    --dark:#111827;
+    --dark:#020617;
 
     --white:#ffffff;
 
-    --gray:#94a3b8;
+    --gray:#cbd5e1;
 
 }
+
 
 
 
@@ -65,6 +66,7 @@ body{
 
 .navbar{
 
+
     display:flex;
 
     justify-content:space-between;
@@ -73,11 +75,19 @@ body{
 
     padding:18px 8%;
 
-    background:rgba(5,5,5,.85);
+
+    background:
+
+    rgba(5,5,5,.85);
+
 
     backdrop-filter:blur(15px);
 
-    border-bottom:1px solid rgba(255,255,255,.1);
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.1);
+
 
     position:sticky;
 
@@ -85,12 +95,16 @@ body{
 
     z-index:1000;
 
+
 }
 
 
 
 
+
+
 .logo{
+
 
     display:flex;
 
@@ -98,34 +112,11 @@ body{
 
     gap:15px;
 
+
     font-size:22px;
 
     font-weight:900;
 
-}
-
-
-
-.logo span{
-
-    background:
-
-    linear-gradient(
-
-    90deg,
-
-    white,
-
-    #10b981,
-
-    #2563eb
-
-    );
-
-
-    -webkit-background-clip:text;
-
-    color:transparent;
 
 }
 
@@ -135,53 +126,28 @@ body{
 
 .logo img{
 
+
     width:65px;
 
     height:65px;
 
-    object-fit:contain;
 
     border-radius:50%;
 
-    border:3px solid var(--green);
+
+    object-fit:contain;
+
+
+    border:
+
+    3px solid var(--green);
+
+
 
     box-shadow:
 
     0 0 25px rgba(16,185,129,.5);
 
-}
-
-
-
-
-
-nav{
-
-    display:flex;
-
-    gap:25px;
-
-}
-
-
-
-nav a{
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-
-
-nav a:hover{
-
-    color:var(--green);
 
 }
 
@@ -189,59 +155,8 @@ nav a:hover{
 
 
 
+.logo span{
 
-/* ===========================
-   HERO SECTION
-=========================== */
-
-
-.hero{
-
-    min-height:85vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:80px 8%;
-
-    position:relative;
-
-}
-
-
-
-.ai-badge{
-
-    padding:10px 22px;
-
-    border-radius:50px;
-
-    border:1px solid var(--green);
-
-    color:var(--green);
-
-    background:rgba(16,185,129,.1);
-
-    font-weight:700;
-
-    margin-bottom:25px;
-
-}
-
-
-
-.hero h1{
-
-    font-size:60px;
-
-    font-weight:900;
 
     background:
 
@@ -260,25 +175,192 @@ nav a:hover{
 
     -webkit-background-clip:text;
 
+
     color:transparent;
 
+
 }
+
+
+
+
+
+
+nav{
+
+
+    display:flex;
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+nav a{
+
+
+    text-decoration:none;
+
+
+    color:white;
+
+
+    font-weight:600;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+nav a:hover{
+
+
+    color:var(--green);
+
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+
+.hero{
+
+
+    min-height:85vh;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    padding:80px 8%;
+
+
+}
+
+
+
+
+
+.ai-badge{
+
+
+    padding:10px 22px;
+
+
+    border-radius:50px;
+
+
+    border:
+
+    1px solid var(--green);
+
+
+    color:var(--green);
+
+
+    background:
+
+    rgba(16,185,129,.1);
+
+
+    font-weight:700;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+.hero h1{
+
+
+    font-size:60px;
+
+
+    font-weight:900;
+
+
+    background:
+
+
+    linear-gradient(
+
+    90deg,
+
+    white,
+
+    var(--green),
+
+    var(--blue)
+
+    );
+
+
+    -webkit-background-clip:text;
+
+
+    color:transparent;
+
+
+}
+
+
 
 
 
 .hero p{
 
+
     max-width:800px;
 
-    color:#cbd5e1;
+
+    color:var(--gray);
+
 
     font-size:20px;
 
+
     margin-top:25px;
 
+
 }
+
 /* ===========================
-   BUTTON SYSTEM
+   BUTTON DESIGN
 =========================== */
 
 
@@ -298,6 +380,7 @@ button{
 
     color:white;
 
+
     background:
 
     linear-gradient(
@@ -310,19 +393,25 @@ button{
 
     );
 
+
     transition:.3s;
 
 }
 
 
 
+
+
 button:hover{
 
+
     transform:translateY(-5px);
+
 
     box-shadow:
 
     0 15px 35px rgba(16,185,129,.35);
+
 
 }
 
@@ -332,19 +421,31 @@ button:hover{
 
 .outline-btn{
 
+
     background:transparent;
 
-    border:2px solid var(--green);
+
+    border:
+
+    2px solid var(--green);
+
 
 }
 
 
 
+
+
 .secondary-btn{
+
 
     background:#111827;
 
-    border:1px solid var(--green);
+
+    border:
+
+    1px solid var(--green);
+
 
 }
 
@@ -354,15 +455,27 @@ button:hover{
 
 
 /* ===========================
-   SECTIONS
+   HERO BUTTONS
 =========================== */
 
 
-.features,
+.hero-buttons{
 
-.premium-dashboard{
 
-    padding:80px 8%;
+    display:flex;
+
+
+    gap:20px;
+
+
+    justify-content:center;
+
+
+    flex-wrap:wrap;
+
+
+    margin-top:40px;
+
 
 }
 
@@ -370,15 +483,36 @@ button:hover{
 
 
 
-.features h2,
 
-.premium-dashboard h2{
+
+/* ===========================
+   GENERAL SECTIONS
+=========================== */
+
+
+.features{
+
+
+    padding:80px 8%;
+
+
+}
+
+
+
+
+
+.features h2{
+
 
     text-align:center;
 
+
     font-size:38px;
 
+
     margin-bottom:45px;
+
 
 }
 
@@ -395,13 +529,18 @@ button:hover{
 
 .notes-card{
 
+
     max-width:900px;
+
 
     margin:auto;
 
+
     padding:40px;
 
+
     border-radius:30px;
+
 
 
     background:
@@ -409,7 +548,9 @@ button:hover{
     rgba(255,255,255,.06);
 
 
+
     backdrop-filter:blur(20px);
+
 
 
     border:
@@ -417,7 +558,9 @@ button:hover{
     1px solid rgba(255,255,255,.12);
 
 
+
     text-align:center;
+
 
 }
 
@@ -425,13 +568,19 @@ button:hover{
 
 
 
+
+
 .notes-card h3{
+
 
     color:var(--green);
 
-    font-size:25px;
+
+    font-size:26px;
+
 
     margin-bottom:15px;
+
 
 }
 
@@ -441,9 +590,12 @@ button:hover{
 
 .notes-card p{
 
-    color:#cbd5e1;
+
+    color:var(--gray);
+
 
     margin-bottom:25px;
+
 
 }
 
@@ -453,24 +605,38 @@ button:hover{
 
 
 
-/* FILE UPLOAD */
+/* ===========================
+   FILE UPLOAD
+=========================== */
 
 
 #noteFile{
 
+
     width:100%;
+
 
     padding:18px;
 
-    border-radius:15px;
 
     background:#020617;
 
-    border:1px dashed var(--green);
 
     color:white;
 
+
+    border-radius:15px;
+
+
+    border:
+
+
+    1px dashed var(--green);
+
+
+
     margin-bottom:25px;
+
 
 }
 
@@ -480,15 +646,25 @@ button:hover{
 
 
 
+/* ===========================
+   NOTES BUTTONS
+=========================== */
+
+
 .notes-actions{
+
 
     display:flex;
 
+
     justify-content:center;
+
 
     flex-wrap:wrap;
 
+
     gap:15px;
+
 
 }
 
@@ -500,71 +676,26 @@ button:hover{
 
 #notesResult{
 
+
     margin-top:30px;
 
-    padding:25px;
 
     min-height:120px;
 
+
+    padding:25px;
+
+
     border-radius:20px;
+
 
     background:#020617;
 
-    color:#cbd5e1;
 
-}
-
+    color:var(--gray);
 
 
-
-
-
-
-
-/* ===========================
-   DASHBOARD CARDS
-=========================== */
-
-
-.stats-container{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(220px,1fr));
-
-
-    gap:25px;
-
-}
-
-
-
-
-
-
-.stat-card{
-
-
-    padding:35px;
-
-
-    border-radius:25px;
-
-
-    text-align:center;
-
-
-    background:
-
-
-    rgba(255,255,255,.06);
-
-
-
-    backdrop-filter:blur(20px);
-
+    text-align:left;
 
 
     border:
@@ -573,113 +704,47 @@ button:hover{
     1px solid rgba(255,255,255,.1);
 
 
-
-    transition:.4s;
-
-
-}
-
-
-
-
-
-
-.stat-card:hover{
-
-
-    transform:translateY(-10px);
-
-
-    border-color:var(--green);
-
-
-    box-shadow:
-
-    0 20px 50px rgba(16,185,129,.2);
-
-
-}
-
-
-
-
-
-
-.stat-card h3{
-
-
-    font-size:45px;
-
-
-    font-weight:900;
-
-
-    background:
-
-
-    linear-gradient(
-
-    90deg,
-
-    var(--green),
-
-    var(--blue)
-
-    );
-
-
-
-    -webkit-background-clip:text;
-
-
-    color:transparent;
-
-
-}
-
-
-
-
-
-
-.stat-card p{
-
-
-    color:#cbd5e1;
-
-
-    margin-top:15px;
-
-
 }
 /* ===========================
-   AI CHAT SECTION
+   AI TUTOR SECTION
 =========================== */
 
 
 .chat-card{
 
+
     max-width:950px;
+
 
     margin:auto;
 
+
     padding:40px;
+
 
     border-radius:30px;
 
+
+
     background:
 
+
     rgba(255,255,255,.06);
+
 
 
     backdrop-filter:blur(20px);
 
 
+
     border:
+
 
     1px solid rgba(255,255,255,.12);
 
+
 }
+
 
 
 
@@ -687,67 +752,12 @@ button:hover{
 
 .chat-card h3{
 
+
     text-align:center;
+
 
     margin-bottom:25px;
 
-}
-
-
-
-
-
-
-
-/* ===========================
-   MODE AND SUBJECT BUTTONS
-=========================== */
-
-
-.learning-modes,
-
-.subjects{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    margin-bottom:30px;
-
-}
-
-
-
-
-.mode-btn,
-
-.subject-btn{
-
-    margin:0;
-
-    padding:12px 22px;
-
-    background:#111827;
-
-    border:1px solid var(--green);
-
-}
-
-
-
-
-
-.mode-btn:hover,
-
-.subject-btn:hover{
-
-    background:var(--green);
-
-    color:black;
 
 }
 
@@ -758,40 +768,83 @@ button:hover{
 
 
 /* ===========================
-   QUESTION AREA
+   QUESTION BOX
 =========================== */
 
 
 textarea{
 
+
     width:100%;
+
 
     height:160px;
 
+
     padding:20px;
+
 
     border-radius:20px;
 
+
     background:#020617;
+
 
     color:white;
 
-    border:1px solid rgba(255,255,255,.2);
 
-    resize:none;
+    border:
+
+
+    1px solid rgba(255,255,255,.2);
+
+
 
     outline:none;
 
+
+    resize:none;
+
+
 }
+
 
 
 
 
 textarea:focus{
 
+
     border-color:var(--green);
 
+
 }
+
+
+
+
+
+
+.buttons{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    flex-wrap:wrap;
+
+
+    gap:15px;
+
+
+    margin-top:25px;
+
+
+}
+
 
 
 
@@ -800,21 +853,27 @@ textarea:focus{
 
 
 /* ===========================
-   CHAT MESSAGES
+   CHAT AREA
 =========================== */
 
 
 #chatArea{
 
+
     margin-top:30px;
+
 
     padding:20px;
 
+
     background:#020617;
+
 
     border-radius:20px;
 
+
 }
+
 
 
 
@@ -822,17 +881,24 @@ textarea:focus{
 
 .message{
 
+
     padding:15px 20px;
+
 
     margin:12px 0;
 
+
     border-radius:20px;
+
 
     max-width:85%;
 
+
     animation:fadeIn .3s ease;
 
+
 }
+
 
 
 
@@ -840,9 +906,12 @@ textarea:focus{
 
 .message.ai{
 
+
     background:#ecfdf5;
 
+
     color:#052e16;
+
 
 }
 
@@ -850,13 +919,18 @@ textarea:focus{
 
 
 
+
 .message.user{
+
 
     background:var(--blue);
 
+
     color:white;
 
+
     margin-left:auto;
+
 
 }
 
@@ -873,13 +947,18 @@ textarea:focus{
 
 .cards{
 
+
     display:grid;
+
 
     grid-template-columns:
 
+
     repeat(auto-fit,minmax(250px,1fr));
 
+
     gap:25px;
+
 
 }
 
@@ -889,26 +968,37 @@ textarea:focus{
 
 .card{
 
+
     padding:30px;
+
 
     border-radius:25px;
 
+
+
     background:
 
+
     rgba(255,255,255,.06);
+
 
 
     backdrop-filter:blur(20px);
 
 
+
     border:
+
 
     1px solid rgba(255,255,255,.1);
 
 
+
     transition:.4s;
 
+
 }
+
 
 
 
@@ -916,11 +1006,15 @@ textarea:focus{
 
 .card:hover{
 
+
     transform:translateY(-8px);
+
 
     border-color:var(--green);
 
+
 }
+
 
 
 
@@ -928,9 +1022,12 @@ textarea:focus{
 
 .card h3{
 
+
     color:var(--green);
 
+
     margin-bottom:15px;
+
 
 }
 
@@ -938,9 +1035,12 @@ textarea:focus{
 
 
 
+
 .card p{
 
-    color:#cbd5e1;
+
+    color:var(--gray);
+
 
 }
 
@@ -957,23 +1057,33 @@ textarea:focus{
 
 .about-box{
 
+
     max-width:850px;
+
 
     margin:auto;
 
+
     padding:35px;
+
+
 
     border-radius:25px;
 
 
+
     background:
+
 
     rgba(255,255,255,.06);
 
 
+
     border:
 
+
     1px solid rgba(255,255,255,.1);
+
 
 }
 
@@ -981,11 +1091,15 @@ textarea:focus{
 
 
 
+
 .about-box p{
 
-    color:#cbd5e1;
+
+    color:var(--gray);
+
 
     margin-bottom:15px;
+
 
 }
 
@@ -1002,11 +1116,15 @@ textarea:focus{
 
 .ai-loading{
 
+
     display:flex;
+
 
     gap:8px;
 
+
     margin-top:10px;
+
 
 }
 
@@ -1016,15 +1134,21 @@ textarea:focus{
 
 .ai-loading span{
 
+
     width:10px;
+
 
     height:10px;
 
+
     background:var(--green);
+
 
     border-radius:50%;
 
+
     animation:typing 1.4s infinite;
+
 
 }
 
@@ -1032,9 +1156,12 @@ textarea:focus{
 
 
 
+
 .ai-loading span:nth-child(2){
 
+
     animation-delay:.2s;
+
 
 }
 
@@ -1044,9 +1171,13 @@ textarea:focus{
 
 .ai-loading span:nth-child(3){
 
+
     animation-delay:.4s;
 
+
 }
+
+
 
 
 
@@ -1057,7 +1188,9 @@ textarea:focus{
 
     0%,100%{
 
+
         transform:translateY(0);
+
 
     }
 
@@ -1065,7 +1198,9 @@ textarea:focus{
 
     50%{
 
+
         transform:translateY(-8px);
+
 
     }
 
@@ -1083,9 +1218,12 @@ textarea:focus{
 
     from{
 
+
         opacity:0;
 
+
         transform:translateY(15px);
+
 
     }
 
@@ -1093,9 +1231,12 @@ textarea:focus{
 
     to{
 
+
         opacity:1;
 
+
         transform:translateY(0);
+
 
     }
 
@@ -1115,17 +1256,24 @@ textarea:focus{
 
 footer{
 
+
     text-align:center;
+
 
     padding:40px 20px;
 
+
     background:#020617;
 
-    color:#cbd5e1;
+
+    color:var(--gray);
+
 
     border-top:
 
+
     1px solid rgba(255,255,255,.1);
+
 
 }
 
@@ -1136,7 +1284,7 @@ footer{
 
 
 /* ===========================
-   MOBILE RESPONSIVE
+   MOBILE DESIGN
 =========================== */
 
 
@@ -1146,9 +1294,12 @@ footer{
 
 .navbar{
 
+
     flex-direction:column;
 
+
     gap:20px;
+
 
 }
 
@@ -1156,9 +1307,12 @@ footer{
 
 nav{
 
+
     flex-wrap:wrap;
 
+
     justify-content:center;
+
 
 }
 
@@ -1166,7 +1320,9 @@ nav{
 
 .hero h1{
 
+
     font-size:38px;
+
 
 }
 
@@ -1174,27 +1330,19 @@ nav{
 
 .hero p{
 
+
     font-size:16px;
+
 
 }
 
 
 
-.features,
+.features{
 
-.premium-dashboard{
 
     padding:50px 20px;
 
-}
-
-
-
-.cards,
-
-.stats-container{
-
-    grid-template-columns:1fr;
 
 }
 
@@ -1202,35 +1350,51 @@ nav{
 
 .notes-card,
 
+
 .chat-card{
+
 
     padding:20px;
 
+
 }
 
 
 
-.learning-modes,
+.cards{
 
-.subjects,
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.hero-buttons,
+
+
+.buttons,
+
 
 .notes-actions{
 
+
     flex-direction:column;
+
 
 }
 
 
 
-.mode-btn,
+button{
 
-.subject-btn,
-
-.notes-actions button{
 
     width:100%;
 
+
 }
+
 
 
 }

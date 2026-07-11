@@ -1,5 +1,5 @@
 // =====================================
-// DENIS GODSON AI STUDY VERSION 6
+// DENIS GODSON AI STUDY VERSION 6 CLEAN
 // SERVER.JS PART 1
 // =====================================
 
@@ -11,7 +11,6 @@ const cors = require("cors");
 const path = require("path");
 
 const Groq = require("groq-sdk");
-
 
 
 
@@ -29,7 +28,9 @@ const app = express();
 app.use(cors());
 
 
-app.use(express.json({limit:"5mb"}));
+app.use(express.json({
+    limit:"5mb"
+}));
 
 
 app.use(express.static(__dirname));
@@ -39,8 +40,9 @@ app.use(express.static(__dirname));
 
 
 
+
 // ===========================
-// GROQ AI CONNECTION
+// GROQ AI SETUP
 // ===========================
 
 
@@ -49,7 +51,6 @@ const client = new Groq({
     apiKey: process.env.GROQ_API_KEY
 
 });
-
 // ===========================
 // AI REQUEST ROUTE
 // ===========================
@@ -62,6 +63,7 @@ app.post("/ask", async (req,res)=>{
 
 
         const question = req.body.question;
+
 
 
 
@@ -88,6 +90,7 @@ app.post("/ask", async (req,res)=>{
 
 
 
+
         const response = await client.chat.completions.create({
 
 
@@ -99,35 +102,36 @@ app.post("/ask", async (req,res)=>{
 
 
 
-            messages:[
 
+
+            messages:[
 
 
 
                 {
 
-
                 role:"system",
-
 
 
                 content:
 
 `
-You are DENIS GODSON AI STUDY Version 6.
+You are DENIS GODSON AI STUDY.
 
-You are a professional AI tutor.
+You are a professional AI learning assistant.
 
-Your job:
-- Explain lessons clearly
-- Help students prepare for exams
-- Summarize notes
-- Create quizzes
+Your responsibilities:
+
+- Explain difficult topics clearly
+- Help students understand lessons
+- Summarize study notes
+- Create quizzes with answers
 - Create flashcards
-- Give examples
-- Encourage learning
+- Help with exam preparation
+- Give simple examples
 
-Always give simple, accurate, student-friendly answers.
+Always respond in a clear and student-friendly way.
+Avoid confusing explanations.
 `
 
                 },
@@ -142,14 +146,15 @@ Always give simple, accurate, student-friendly answers.
                 role:"user",
 
 
-
                 content:question
+
 
                 }
 
 
 
             ],
+
 
 
 
@@ -166,6 +171,8 @@ Always give simple, accurate, student-friendly answers.
 
 
 
+
+
         const answer =
 
         response.choices[0].message.content;
@@ -175,12 +182,12 @@ Always give simple, accurate, student-friendly answers.
 
 
 
+
+
         res.json({
 
 
-
             answer:answer
-
 
 
         });
@@ -190,7 +197,6 @@ Always give simple, accurate, student-friendly answers.
 
 
     }
-
 
 
 
@@ -208,11 +214,9 @@ Always give simple, accurate, student-friendly answers.
         res.status(500).json({
 
 
-
             answer:
 
-            "❌ AI service is temporarily unavailable. Please try again."
-
+            "❌ AI is currently unavailable. Please try again."
 
 
         });
@@ -224,7 +228,6 @@ Always give simple, accurate, student-friendly answers.
 
 
 });
-
 // ===========================
 // HOMEPAGE ROUTE
 // ===========================
@@ -249,7 +252,7 @@ app.get("/", (req,res)=>{
 
 
 // ===========================
-// HEALTH CHECK ROUTE
+// HEALTH CHECK
 // ===========================
 
 
@@ -258,7 +261,9 @@ app.get("/health",(req,res)=>{
 
     res.json({
 
-        status:"DENIS GODSON AI STUDY Version 6 is running 🚀"
+        status:
+
+        "DENIS GODSON AI STUDY Version 6 Clean is running 🚀"
 
     });
 
@@ -272,7 +277,7 @@ app.get("/health",(req,res)=>{
 
 
 // ===========================
-// SERVER START
+// START SERVER
 // ===========================
 
 
@@ -285,7 +290,7 @@ app.listen(PORT,()=>{
 
     console.log(
 
-    `🚀 DENIS GODSON AI STUDY Version 6 running on port ${PORT}`
+    `🚀 DENIS GODSON AI STUDY running on port ${PORT}`
 
     );
 

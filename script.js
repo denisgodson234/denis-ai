@@ -1,19 +1,15 @@
 // =====================================
-// DENIS GODSON AI STUDY VERSION 6
+// DENIS GODSON AI STUDY VERSION 6 CLEAN
 // SCRIPT.JS PART 1
 // =====================================
 
 
 
-let selectedSubject = "General Study";
-
-
-let selectedMode = "Teacher Mode";
-
-
 let lastAnswer = "";
 
 let uploadedNotes = "";
+
+
 
 
 
@@ -49,65 +45,10 @@ const notesResult = document.getElementById("notesResult");
 
 
 
-// ===========================
-// SUBJECT SELECTION
-// ===========================
-
-
-function setSubject(subject){
-
-
-    selectedSubject = subject;
-
-
-    if(questionInput){
-
-
-        questionInput.placeholder =
-
-        "Ask your " + subject + " question...";
-
-
-    }
-
-
-}
-
-
-
-
 
 
 // ===========================
-// AI MODE SELECTION
-// ===========================
-
-
-function setMode(mode){
-
-
-    selectedMode = mode;
-
-
-
-    addMessage(
-
-    "✅ Learning mode changed to: " + mode,
-
-    "ai"
-
-    );
-
-
-}
-
-
-
-
-
-
-// ===========================
-// CHAT MESSAGE DISPLAY
+// ADD CHAT MESSAGE
 // ===========================
 
 
@@ -141,65 +82,6 @@ function addMessage(text,type){
 
 
 }
-
-
-
-
-
-
-// ===========================
-// AI TEACHING STYLE
-// ===========================
-
-
-function getModeInstruction(){
-
-
-
-    if(selectedMode === "Teacher Mode"){
-
-
-        return "Explain clearly like a patient teacher using simple examples.";
-
-
-    }
-
-
-
-    if(selectedMode === "Exam Mode"){
-
-
-        return "Answer like an exam preparation tutor with important points.";
-
-
-    }
-
-
-
-    if(selectedMode === "Revision Mode"){
-
-
-        return "Create summaries, key points and memory tips.";
-
-
-    }
-
-
-
-    if(selectedMode === "Creative Mode"){
-
-
-        return "Use creative explanations and examples to help learning.";
-
-
-    }
-
-
-
-    return "Help the student learn effectively.";
-
-}
-
 // ===========================
 // NOTES FILE UPLOAD
 // ===========================
@@ -211,15 +93,14 @@ if(noteFile){
 noteFile.addEventListener("change",()=>{
 
 
+
     const file = noteFile.files[0];
 
 
 
     if(!file){
 
-
         return;
-
 
     }
 
@@ -231,11 +112,15 @@ noteFile.addEventListener("change",()=>{
 
 
 
+
+
     reader.onload = function(event){
 
 
 
         uploadedNotes = event.target.result;
+
+
 
 
 
@@ -270,7 +155,7 @@ noteFile.addEventListener("change",()=>{
 
 
 // ===========================
-// ANALYZE NOTES FUNCTION
+// ANALYZE NOTES
 // ===========================
 
 
@@ -298,6 +183,8 @@ async function analyzeNotes(type){
 
 
 
+
+
     notesResult.innerHTML =
 
     "🤖 AI is analyzing your notes...";
@@ -307,7 +194,9 @@ async function analyzeNotes(type){
 
 
 
-    let request = "";
+
+    let task = "";
+
 
 
 
@@ -316,7 +205,7 @@ async function analyzeNotes(type){
     if(type === "summary"){
 
 
-        request =
+        task =
 
         "Summarize these notes into simple important points.";
 
@@ -327,10 +216,11 @@ async function analyzeNotes(type){
 
 
 
+
     if(type === "quiz"){
 
 
-        request =
+        task =
 
         "Create a quiz from these notes with answers.";
 
@@ -341,10 +231,11 @@ async function analyzeNotes(type){
 
 
 
+
     if(type === "flashcards"){
 
 
-        request =
+        task =
 
         "Create useful flashcards from these notes.";
 
@@ -385,13 +276,12 @@ async function analyzeNotes(type){
                 question:
 
 `
-You are DENIS GODSON AI STUDY Version 6.
+You are DENIS GODSON AI STUDY.
 
-Task:
-${request}
+${task}
 
 
-Student Notes:
+Study Notes:
 
 ${uploadedNotes}
 
@@ -417,9 +307,12 @@ ${uploadedNotes}
 
 
 
+
         notesResult.innerHTML =
 
         data.answer;
+
+
 
 
 
@@ -430,18 +323,17 @@ ${uploadedNotes}
 
 
 
-
     catch(error){
+
+
+
+        console.log(error);
 
 
 
         notesResult.innerHTML =
 
-        "❌ Unable to analyze notes. Try again.";
-
-
-
-        console.log(error);
+        "❌ Unable to analyze notes. Please try again.";
 
 
 
@@ -452,13 +344,13 @@ ${uploadedNotes}
 
 
 }
-
 // ===========================
 // ASK AI FUNCTION
 // ===========================
 
 
 if(askBtn){
+
 
 
 askBtn.addEventListener("click", async ()=>{
@@ -469,7 +361,9 @@ askBtn.addEventListener("click", async ()=>{
 
 
 
+
     if(question === ""){
+
 
 
         addMessage(
@@ -480,11 +374,11 @@ askBtn.addEventListener("click", async ()=>{
 
         );
 
-
         return;
 
 
     }
+
 
 
 
@@ -503,6 +397,7 @@ askBtn.addEventListener("click", async ()=>{
 
 
     askBtn.textContent = "Thinking...";
+
 
 
 
@@ -542,6 +437,7 @@ askBtn.addEventListener("click", async ()=>{
 
 
 
+
     try{
 
 
@@ -570,22 +466,12 @@ askBtn.addEventListener("click", async ()=>{
                 question:
 
 `
+You are DENIS GODSON AI STUDY.
 
-You are DENIS GODSON AI STUDY Version 6.
-
-Learning Mode:
-${selectedMode}
-
-
-Subject:
-${selectedSubject}
-
-
-Instruction:
-${getModeInstruction()}
-
+Help the student learn clearly.
 
 Student Question:
+
 ${question}
 
 `
@@ -601,7 +487,10 @@ ${question}
 
 
 
+
+
         const data = await response.json();
+
 
 
 
@@ -611,7 +500,9 @@ ${question}
 
 
 
+
         lastAnswer = data.answer;
+
 
 
 
@@ -628,7 +519,10 @@ ${question}
 
 
 
+
     }
+
+
 
 
 
@@ -642,7 +536,7 @@ ${question}
 
         addMessage(
 
-        "❌ AI connection error.",
+        "❌ AI connection error. Try again.",
 
         "ai"
 
@@ -655,6 +549,7 @@ ${question}
 
 
     }
+
 
 
 
@@ -695,11 +590,13 @@ clearBtn.addEventListener("click",()=>{
 
     chatArea.innerHTML = `
 
+
     <div class="message ai">
 
-    🤖 Welcome to DENIS GODSON AI STUDY Version 6.
+    🤖 Hello! I am your AI study assistant. Ask me anything.
 
     </div>
+
 
     `;
 
@@ -737,13 +634,13 @@ copyBtn.addEventListener("click",()=>{
     if(lastAnswer === ""){
 
 
-        alert("No answer available.");
-
+        alert("No AI answer available.");
 
         return;
 
 
     }
+
 
 
 
@@ -762,14 +659,3 @@ copyBtn.addEventListener("click",()=>{
 
 
 }
-
-
-
-
-
-
-
-
-// ===========================
-// DASHBOARD COUNTERS
-// =================
