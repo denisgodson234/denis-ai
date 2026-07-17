@@ -1,661 +1,265 @@
-// =====================================
-// DENIS GODSON AI STUDY VERSION 6 CLEAN
+// ==========================================
+// DENIS GODSON AI STUDY
+// VERSION 6.2 PREMIUM
 // SCRIPT.JS PART 1
-// =====================================
-
-
+// ==========================================
 
 let lastAnswer = "";
-
 let uploadedNotes = "";
-
-
-
-
-
-
 
 // ===========================
 // ELEMENTS
 // ===========================
 
-
 const askBtn = document.getElementById("askBtn");
-
-
 const questionInput = document.getElementById("question");
-
-
 const chatArea = document.getElementById("chatArea");
 
-
 const clearBtn = document.getElementById("clearBtn");
-
-
 const copyBtn = document.getElementById("copyBtn");
 
-
 const noteFile = document.getElementById("noteFile");
-
-
 const notesResult = document.getElementById("notesResult");
 
-
-
-
-
-
-
-
 // ===========================
-// ADD CHAT MESSAGE
+// ADD MESSAGE
 // ===========================
 
-
-function addMessage(text,type){
-
-
-
-    if(!chatArea) return;
-
-
+function addMessage(text, type){
 
     const message = document.createElement("div");
 
-
-
-    message.className =
-
-    "message " + type;
-
-
+    message.className = "message " + type;
 
     message.textContent = text;
 
-
-
     chatArea.appendChild(message);
-
-
 
     chatArea.scrollTop = chatArea.scrollHeight;
 
-
 }
+
 // ===========================
-// NOTES FILE UPLOAD
+// SCROLL ANIMATION
 // ===========================
 
+const observer = new IntersectionObserver((entries)=>{
 
-if(noteFile){
+    entries.forEach(entry=>{
 
+        if(entry.isIntersecting){
 
-noteFile.addEventListener("change",()=>{
+            entry.target.classList.add("show");
 
+        }
 
+    });
 
-    const file = noteFile.files[0];
+},{
+    threshold:0.15
+});
 
+document.querySelectorAll(
+".premium-section,.card,.premium-card,.chat-card"
+).forEach(item=>{
 
+    item.classList.add("fade-in");
 
-    if(!file){
-
-        return;
-
-    }
-
-
-
-
-
-    const reader = new FileReader();
-
-
-
-
-
-    reader.onload = function(event){
-
-
-
-        uploadedNotes = event.target.result;
-
-
-
-
-
-        notesResult.innerHTML =
-
-        "✅ Notes uploaded successfully.<br><br>" +
-
-        file.name;
-
-
-
-    };
-
-
-
-
-
-    reader.readAsText(file);
-
-
+    observer.observe(item);
 
 });
 
+// ===========================
+// BUTTON RIPPLE EFFECT
+// ===========================
 
+document.querySelectorAll("button").forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const ripple=document.createElement("span");
+
+const size=Math.max(
+this.clientWidth,
+this.clientHeight
+);
+
+ripple.style.width=size+"px";
+ripple.style.height=size+"px";
+
+ripple.style.left=
+e.offsetX-size/2+"px";
+
+ripple.style.top=
+e.offsetY-size/2+"px";
+
+ripple.className="ripple";
+
+this.appendChild(ripple);
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
+
+});
+// ===========================
+// ENTER KEY SUPPORT
+// ===========================
+
+if(questionInput){
+
+questionInput.addEventListener("keydown",function(e){
+
+if(e.key==="Enter" && !e.shiftKey){
+
+e.preventDefault();
+
+askBtn.click();
 
 }
 
-
-
-
-
-
-
-// ===========================
-// ANALYZE NOTES
-// ===========================
-
-
-async function analyzeNotes(type){
-
-
-
-    if(uploadedNotes === ""){
-
-
-
-        notesResult.innerHTML =
-
-        "⚠️ Please upload your notes first.";
-
-
-
-        return;
-
-
-
-    }
-
-
-
-
-
-
-
-    notesResult.innerHTML =
-
-    "🤖 AI is analyzing your notes...";
-
-
-
-
-
-
-
-    let task = "";
-
-
-
-
-
-
-    if(type === "summary"){
-
-
-        task =
-
-        "Summarize these notes into simple important points.";
-
-
-    }
-
-
-
-
-
-
-    if(type === "quiz"){
-
-
-        task =
-
-        "Create a quiz from these notes with answers.";
-
-
-    }
-
-
-
-
-
-
-    if(type === "flashcards"){
-
-
-        task =
-
-        "Create useful flashcards from these notes.";
-
-
-    }
-
-
-
-
-
-
-
-    try{
-
-
-
-        const response = await fetch("/ask",{
-
-
-
-            method:"POST",
-
-
-
-            headers:{
-
-
-                "Content-Type":"application/json"
-
-
-            },
-
-
-
-            body:JSON.stringify({
-
-
-                question:
-
-`
-You are DENIS GODSON AI STUDY.
-
-${task}
-
-
-Study Notes:
-
-${uploadedNotes}
-
-`
-
-
-            })
-
-
-
-        });
-
-
-
-
-
-
-
-
-        const data = await response.json();
-
-
-
-
-
-
-        notesResult.innerHTML =
-
-        data.answer;
-
-
-
-
-
-
-
-    }
-
-
-
-
-    catch(error){
-
-
-
-        console.log(error);
-
-
-
-        notesResult.innerHTML =
-
-        "❌ Unable to analyze notes. Please try again.";
-
-
-
-    }
-
-
-
-
+});
 
 }
+
 // ===========================
-// ASK AI FUNCTION
+// LOADING ANIMATION
 // ===========================
 
+function showLoading(){
+
+const loading=document.createElement("div");
+
+loading.id="loadingMessage";
+
+loading.className="message ai";
+
+loading.innerHTML=`
+
+🤖 <strong>AI is thinking...</strong>
+
+<div class="ai-loading">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+`;
+
+chatArea.appendChild(loading);
+
+chatArea.scrollTop=chatArea.scrollHeight;
+
+}
+
+function hideLoading(){
+
+const loading=document.getElementById("loadingMessage");
+
+if(loading){
+
+loading.remove();
+
+}
+
+}
+
+// ===========================
+// UPDATE ASK BUTTON
+// ===========================
 
 if(askBtn){
 
+const originalClick=askBtn.onclick;
 
+askBtn.addEventListener("click",()=>{
 
-askBtn.addEventListener("click", async ()=>{
+showLoading();
 
-
-
-    const question = questionInput.value.trim();
-
-
-
-
-    if(question === ""){
-
-
-
-        addMessage(
-
-        "⚠️ Please enter a question.",
-
-        "ai"
-
-        );
-
-        return;
-
-
-    }
-
-
-
-
-
-
-    addMessage(question,"user");
-
-
-
-    questionInput.value = "";
-
-
-
-    askBtn.disabled = true;
-
-
-
-    askBtn.textContent = "Thinking...";
-
-
-
-
-
-
-    const loading = document.createElement("div");
-
-
-
-    loading.className = "message ai";
-
-
-
-    loading.innerHTML = `
-
-    🤖 AI is thinking
-
-    <div class="ai-loading">
-
-    <span></span>
-
-    <span></span>
-
-    <span></span>
-
-    </div>
-
-    `;
-
-
-
-    chatArea.appendChild(loading);
-
-
-
-
-
-
-
-
-    try{
-
-
-
-        const response = await fetch("/ask",{
-
-
-
-            method:"POST",
-
-
-
-            headers:{
-
-
-                "Content-Type":"application/json"
-
-
-            },
-
-
-
-            body:JSON.stringify({
-
-
-                question:
-
-`
-You are DENIS GODSON AI STUDY.
-
-Help the student learn clearly.
-
-Student Question:
-
-${question}
-
-`
-
-            })
-
-
-
-        });
-
-
-
-
-
-
-
-
-        const data = await response.json();
-
-
-
-
-
-        loading.remove();
-
-
-
-
-
-        lastAnswer = data.answer;
-
-
-
-
-
-
-        addMessage(
-
-        data.answer,
-
-        "ai"
-
-        );
-
-
-
-
-
-    }
-
-
-
-
-
-    catch(error){
-
-
-
-        loading.remove();
-
-
-
-        addMessage(
-
-        "❌ AI connection error. Try again.",
-
-        "ai"
-
-        );
-
-
-
-        console.log(error);
-
-
-
-    }
-
-
-
-
-
-
-    askBtn.disabled = false;
-
-
-
-    askBtn.textContent = "Ask AI";
-
-
+setTimeout(hideLoading,800);
 
 });
 
-
-
 }
 
-
-
-
-
-
-
 // ===========================
-// CLEAR CHAT
+// WELCOME MESSAGE
 // ===========================
 
+window.addEventListener("load",()=>{
 
-if(clearBtn){
-
-
-
-clearBtn.addEventListener("click",()=>{
-
-
-
-    chatArea.innerHTML = `
-
-
-    <div class="message ai">
-
-    🤖 Hello! I am your AI study assistant. Ask me anything.
-
-    </div>
-
-
-    `;
-
-
-
-    lastAnswer = "";
-
-
+console.log("🚀 DENIS GODSON AI STUDY Version 6.2 Premium Loaded");
 
 });
 
-
-
-}
-
-
-
-
-
-
-
 // ===========================
-// COPY ANSWER
+// BACK TO TOP BUTTON
 // ===========================
 
+const topButton=document.createElement("button");
 
-if(copyBtn){
+topButton.innerHTML="⬆";
 
+topButton.id="topButton";
 
+document.body.appendChild(topButton);
 
-copyBtn.addEventListener("click",()=>{
+Object.assign(topButton.style,{
 
+position:"fixed",
 
+right:"20px",
 
-    if(lastAnswer === ""){
+bottom:"20px",
 
+width:"50px",
 
-        alert("No AI answer available.");
+height:"50px",
 
-        return;
+borderRadius:"50%",
 
+border:"none",
 
-    }
+cursor:"pointer",
 
+display:"none",
 
+fontSize:"20px",
 
+fontWeight:"bold",
 
+background:"linear-gradient(135deg,#2563eb,#10b981)",
 
+color:"#fff",
 
-    navigator.clipboard.writeText(lastAnswer);
+boxShadow:"0 8px 20px rgba(0,0,0,.3)",
 
-
-
-    alert("✅ Answer copied!");
-
-
+zIndex:"999"
 
 });
 
+window.addEventListener("scroll",()=>{
 
+topButton.style.display=
 
-}
+window.scrollY>300?"block":"none";
+
+});
+
+topButton.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});

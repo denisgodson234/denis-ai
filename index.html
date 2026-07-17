@@ -7,314 +7,259 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-DENIS GODSON AI STUDY
-</title>
+<title>DENIS GODSON AI STUDY</title>
 
+<meta name="description"
+content="A modern AI-powered learning platform for students. Learn faster with AI Tutor, AI Notes, quizzes and flashcards.">
 
 <link rel="icon" href="logo.png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
-
 </head>
-
 
 <body>
 
+<!-- Animated Background -->
+
+<div class="background-glow"></div>
+
+<div class="particles">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<!-- NAVBAR -->
 
 <header class="navbar">
 
-
 <div class="logo">
 
+<img src="logo.png" alt="DENIS GODSON AI STUDY Logo">
 
-<img src="logo.png" alt="Logo">
-
-
-<span>
-🎓 DENIS GODSON AI STUDY
-</span>
-
+<span>DENIS GODSON AI STUDY</span>
 
 </div>
-
-
 
 <nav>
 
+<a href="#home">Home</a>
 
-<a href="#home">
-Home
-</a>
+<a href="#notes">AI Notes</a>
 
+<a href="#chat">AI Tutor</a>
 
-<a href="#notes">
-AI Notes
-</a>
-
-
-<a href="#chat">
-AI Tutor
-</a>
-
-
-<a href="#features">
-Features
-</a>
-
+<a href="#features">Features</a>
 
 </nav>
 
+<a href="#chat" class="nav-button">
+
+Get Started →
+
+</a>
 
 </header>
 
-
-
-
-
-<!-- ===========================
-     HERO SECTION
-=========================== -->
-
+<!-- HERO -->
 
 <section id="home" class="hero">
 
+<div class="hero-content">
 
+<div class="hero-badge">
 
-<div class="ai-badge">
-
-🤖 POWERED BY ARTIFICIAL INTELLIGENCE
+✨ AI Powered Learning Platform
 
 </div>
-
-
-
 
 <h1>
 
-Your Personal AI Learning Assistant
+Study Smarter.<br>
+
+<span>Learn Faster with AI.</span>
 
 </h1>
 
-
-
-
 <p>
 
-Learn faster, understand difficult topics,
-analyze notes, and prepare for exams with Denis AI.
+Master difficult subjects, summarize notes, generate quizzes, create flashcards, and prepare for exams using your personal AI tutor.
 
 </p>
-
-
-
-
 
 <div class="hero-buttons">
 
-
-<a href="#notes">
-
+<a href="#chat">
 
 <button class="premium-btn">
 
-Analyze Notes
+🚀 Start Learning
 
 </button>
 
-
 </a>
 
-
-
-
-<a href="#chat">
-
+<a href="#notes">
 
 <button class="outline-btn">
 
-Ask AI Tutor
+📄 Analyze Notes
 
 </button>
 
-
 </a>
-
 
 </div>
 
+</div>
 
+<div class="hero-glow"></div>
 
 </section>
-
-
-
-
-
 <!-- ===========================
-     AI NOTES ASSISTANT
+     AI NOTES SECTION
 =========================== -->
 
+<section id="notes" class="premium-section">
 
-<section id="notes" class="features">
+<div class="section-title">
 
+<span>📄 AI NOTES ASSISTANT</span>
 
-<h2>
-
-📄 AI Notes Assistant
-
-</h2>
-
-
-
-<div class="notes-card">
-
-
-<h3>
-
-Upload Your Notes
-
-</h3>
-
-
+<h2>Transform Your Study Notes into Success</h2>
 
 <p>
 
-AI can summarize your notes, create quizzes,
-and generate flashcards.
+Upload your notes and let AI summarize them, create quizzes,
+and generate smart flashcards within seconds.
 
 </p>
 
+</div>
 
+<div class="premium-card">
 
+<div class="card-icon">
 
-<input 
+📚
+
+</div>
+
+<h3>Upload Study Notes</h3>
+
+<p>
+
+Supports text notes for now. More document formats will be added in future updates.
+
+</p>
+
+<input
 type="file"
 id="noteFile"
-accept=".txt"
->
-
-
-
+accept=".txt">
 
 <div class="notes-actions">
 
-
-<button onclick="analyzeNotes('summary')">
+<button onclick="analyzeNotes('summary')" class="premium-btn">
 
 📄 Summary
 
 </button>
 
-
-
-<button onclick="analyzeNotes('quiz')">
+<button onclick="analyzeNotes('quiz')" class="premium-btn">
 
 📝 Quiz
 
 </button>
 
-
-
-<button onclick="analyzeNotes('flashcards')">
+<button onclick="analyzeNotes('flashcards')" class="premium-btn">
 
 🧠 Flashcards
 
 </button>
 
-
-
 </div>
-
-
-
 
 <div id="notesResult">
 
-Your AI notes result will appear here.
+✨ Your AI-generated results will appear here...
 
 </div>
 
-
-
 </div>
-
 
 </section>
+
 
 
 <!-- ===========================
      AI TUTOR SECTION
 =========================== -->
 
+<section id="chat" class="premium-section">
 
-<section id="chat" class="features">
+<div class="section-title">
 
+<span>🤖 AI TUTOR</span>
 
+<h2>Your Personal AI Teacher</h2>
 
-<h2>
+<p>
 
-🤖 AI Tutor
+Ask questions from any subject and receive clear,
+step-by-step explanations.
 
-</h2>
+</p>
 
-
-
+</div>
 
 <div class="chat-card">
 
+<div class="chat-header">
 
+<div class="chat-status">
 
+<div class="online-dot"></div>
 
+AI Tutor Online
 
-<h3>
+</div>
 
-Ask DENIS GODSON AI STUDY Anything
-
-</h3>
-
-
-
-
-
+</div>
 
 <textarea
 
 id="question"
 
-placeholder="Type your question here..."
+placeholder="Ask any question... Example: Explain Newton's First Law."
 
 ></textarea>
 
-
-
-
-
-
-
 <div class="buttons">
 
+<button id="askBtn" class="premium-btn">
 
-
-<button id="askBtn">
-
-Ask AI
+🚀 Ask AI
 
 </button>
-
-
-
 
 <button id="clearBtn" class="secondary-btn">
 
-🗑️ Clear
+🗑 Clear
 
 </button>
-
-
-
 
 <button id="copyBtn" class="secondary-btn">
 
@@ -322,237 +267,138 @@ Ask AI
 
 </button>
 
-
-
 </div>
-
-
-
-
-
-
 
 <div id="chatArea">
 
-
-
 <div class="message ai">
 
+👋 Welcome to DENIS GODSON AI STUDY!
 
-🤖 Hello! I am Denis Godson your AI study assistant. Ask me anything.
-
-
-</div>
-
-
+I'm ready to help you learn.
 
 </div>
 
-
-
-
-
-
 </div>
 
+</div>
 
 </section>
-
-
-
-
-
-
-
 <!-- ===========================
      FEATURES SECTION
 =========================== -->
 
+<section id="features" class="premium-section">
 
-<section id="features" class="features">
+<div class="section-title">
 
+<span>🚀 WHY CHOOSE US</span>
 
+<h2>Everything You Need to Study Smarter</h2>
 
-<h2>
+<p>
 
-🚀 AI Learning Features
+Powerful AI tools designed to help students learn faster and perform better.
 
-</h2>
+</p>
 
-
-
-
-
+</div>
 
 <div class="cards">
 
-
-
-
-
 <div class="card">
 
+<div class="card-icon">🤖</div>
 
-<h3>
-
-📄 Smart Notes
-
-</h3>
-
-
+<h3>AI Tutor</h3>
 
 <p>
 
-Turn your notes into summaries, quizzes, and flashcards.
+Get instant explanations for any subject with step-by-step guidance.
 
 </p>
 
-
 </div>
-
-
-
-
-
-
 
 <div class="card">
 
+<div class="card-icon">📄</div>
 
-<h3>
-
-🧠 AI Explanations
-
-</h3>
-
-
+<h3>Smart Notes</h3>
 
 <p>
 
-Understand difficult topics with simple explanations.
+Turn your notes into summaries, quizzes and flashcards in seconds.
 
 </p>
 
-
 </div>
-
-
-
-
-
-
 
 <div class="card">
 
+<div class="card-icon">📝</div>
 
-<h3>
-
-📝 Exam Preparation
-
-</h3>
-
-
+<h3>Exam Preparation</h3>
 
 <p>
 
-Practice questions and improve your exam knowledge.
+Practice with AI-generated questions and improve your confidence.
 
 </p>
 
-
 </div>
-
-
-
-
-
-
 
 <div class="card">
 
+<div class="card-icon">⚡</div>
 
-<h3>
-
-⚡ Instant Help
-
-</h3>
-
-
+<h3>Fast & Free</h3>
 
 <p>
 
-Get AI learning support anytime.
+A fast, modern AI learning platform that is free and easy to use.
 
 </p>
 
-
 </div>
 
-
-
-
-
 </div>
-
-
 
 </section>
+
 
 
 <!-- ===========================
      ABOUT SECTION
 =========================== -->
 
+<section class="premium-section">
 
-<section class="features">
+<div class="section-title">
 
+<span>🌍 ABOUT</span>
 
-
-<h2>
-
-About DENIS GODSON AI STUDY
-
-</h2>
-
-
-
-
-<div class="about-box">
-
-
-<p>
-
-DENIS GODSON AI STUDY is an AI-powered learning platform designed to help students study smarter.
-
-</p>
-
-
-
-<p>
-
-Students can analyze notes, get explanations, prepare for exams, and receive learning support from AI.
-
-</p>
-
-
-
-<p>
-
-My mission is to make learning easier, faster, and more accessible.
-
-</p>
-
-
+<h2>About DENIS GODSON AI STUDY</h2>
 
 </div>
 
+<div class="premium-card">
 
+<p>
+
+DENIS GODSON AI STUDY is an AI-powered learning platform built to help students understand lessons, summarize notes, prepare for exams, and learn more effectively.
+
+</p>
+
+<p>
+
+Our mission is to make high-quality AI learning tools accessible to every student through a modern, professional, and easy-to-use platform.
+
+</p>
+
+</div>
 
 </section>
-
-
-
-
 
 
 
@@ -560,40 +406,34 @@ My mission is to make learning easier, faster, and more accessible.
      FOOTER
 =========================== -->
 
-
 <footer>
 
+<div class="footer-logo">
 
+<img src="logo.png" alt="Logo">
 
-<p>
+<h3>DENIS GODSON AI STUDY</h3>
 
-© 2026 DENIS GODSON AI STUDY
-
-</p>
-
-
+</div>
 
 <p>
 
-Powered by AI • Built by Denis Godson
+Learn Smarter • Study Faster • Powered by AI • Built by Denis Godson
 
 </p>
 
+<p>
 
+© 2026 DENIS GODSON AI STUDY. All rights reserved.
+
+</p>
 
 </footer>
 
 
 
-
-
-
-
 <script src="script.js"></script>
 
-
-
 </body>
-
 
 </html>
